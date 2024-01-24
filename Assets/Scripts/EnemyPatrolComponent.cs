@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.UI.CanvasScaler;
 
 public class EnemyPatrolComponent : MonoBehaviour
 {
@@ -15,38 +16,38 @@ public class EnemyPatrolComponent : MonoBehaviour
     [SerializeField] float patrolRotateSpeed = 5;
     [SerializeField] float minDistanceAllowedtoPathPoint = 0.5f;
 
-    //public Path CurrentPath
-    //{
-    //    get { return currentPath; }
-    //    set
-    //    {
-    //        currentPath = value;
-    //        bool _pathValid = currentPath.AllPathPoints.Count < 1 ? false : true;
-    //        OnPathReceived?.Invoke(_pathValid);
-    //        allPoints = currentPath.AllPathPoints;
-    //    }
-    //}
+    [SerializeField] Enemy enemy = null;
+
+    public bool CanPatrol
+    {
+        get { return canPatrol; }
+        set { canPatrol = value; }
+    }
+
     private void Awake()
     {
         OnPathReceived += (pathValid) =>
         {
             SetCanPatrol(pathValid);
-            Debug.Log($"Path Received... It is {(pathValid ? "Valid" : "invalid")}");
+            Debug.Log($"Path Received. It is {(pathValid ? "Valid" : "invalid")}");
         };
 
     }
-    // Start is called before the first frame update
     void Start()
     {
-        currentPath.OnPathPointsCollected += SetPatrolPoints;
-        
-        // owner = GetComponent<SpawnEntity>();      Class version
+        Init();
+       
+    }
+    void Init()
+    {
+        enemy = GetComponent<Enemy>();
+        SetPatrolPoints();
+        OnPathReceived?.Invoke(true);
     }
 
     private void SetPatrolPoints()
     {
-        allPoints = currentPath.AllPathPoints;
-        Debug.Log("patrol points set in the patrol component");
+        allPoints = currentPath.FindPathPoints();
     }
 
     // Update is called once per frame
@@ -62,9 +63,11 @@ public class EnemyPatrolComponent : MonoBehaviour
         {
             return;
         }
+        
+        //transform.position = Vector3.MoveTowards(transform.position,
+        //    _targetPos, Time.deltaTime * patrolSpeed);
         Vector3 _targetPos = currentPath.AllPathPoints[pathIndex];
-        transform.position = Vector3.MoveTowards(transform.position,
-            _targetPos, Time.deltaTime * patrolSpeed);
+        enemy.MoveTo(allPoints[pathIndex]);
         if (Vector3.Distance(transform.position, _targetPos) <= minDistanceAllowedtoPathPoint)
         {
             UpdatePathIndex();
@@ -75,10 +78,12 @@ public class EnemyPatrolComponent : MonoBehaviour
     void RotateTowards()
     {
         if (!canPatrol) return;
-        Vector3 _lookAtDirection = currentPath.AllPathPoints[pathIndex] - transform.position;
-        if (_lookAtDirection == Vector3.zero) return;
-        Quaternion _newRot = Quaternion.LookRotation(_lookAtDirection);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, _newRot, Time.deltaTime * patrolRotateSpeed);
+        //Vector3 _lookAtDirection = currentPath.AllPathPoints[pathIndex] - transform.position;
+        //if (_lookAtDirection == Vector3.zero) return;
+        //Vector3 _newRot = Vector3.RotateTowards(transform.forward, _lookAtDirection, Time.deltaTime * patrolRotateSpeed,0);
+        //transform.rotation = Quaternion.LookRotation(_newRot);
+        enemy.RotateTo(currentPath.AllPathPoints[pathIndex]);
+        
     }
 
     public void SetCanPatrol(bool _value)
@@ -90,7 +95,8 @@ public class EnemyPatrolComponent : MonoBehaviour
     {
         if (pathIndex + 1 >= currentPath.AllPathPoints.Count)
         {
-            SetCanPatrol(false);
+            pathIndex = 0;
+            //SetCanPatrol(false);
             return;
         }
         pathIndex++;

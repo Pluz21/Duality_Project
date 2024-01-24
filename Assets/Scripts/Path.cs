@@ -14,16 +14,17 @@ public class Path : MonoBehaviour
 
     private void Awake()
     {
-        allPathPoints = FindPathPoints();
-        Debug.Log("path called");
+        //allPathPoints = FindPathPoints();
+        //Debug.Log("path called");
     }
     void Start()
     {
+        allPathPoints = FindPathPoints();
 
     }
 
 
-    List<Vector3> FindPathPoints()
+    public List<Vector3> FindPathPoints()
     {
         List<Vector3> _points = new List<Vector3>();
         foreach (Transform _child in transform)
