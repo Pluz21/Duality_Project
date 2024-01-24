@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(InputComponent),typeof(MovementComponent))]
+[RequireComponent(typeof(InputComponent),typeof(MovementComponent),typeof(DetectionComponent))]
 public class Player : MonoBehaviour
 {
-    [SerializeField] float detectionRange = 10;
     MovementComponent movementComponent = null;
     InputComponent inputComponent = null;
 
@@ -19,6 +18,12 @@ public class Player : MonoBehaviour
     {
         movementComponent = GetComponent<MovementComponent>();
         inputComponent = GetComponent<InputComponent>();
+
+    }
+
+    void InitEvents()
+    { 
+        //inputComponent.LeftClick.performed += 
     }
     // Update is called once per frame
     void Update()
@@ -26,8 +31,5 @@ public class Player : MonoBehaviour
         movementComponent.Move();
     }
 
-    private void OnDrawGizmos()
-    {
-        AnmaGizmos.DrawSphere(transform.position, detectionRange, Color.blue);
-    }
+   
 }

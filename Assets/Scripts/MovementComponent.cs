@@ -48,7 +48,7 @@ public class MovementComponent : MonoBehaviour
     {
         Move();
         Rotate();  
-        dash();
+        Dash();
         Crouch();
         Invi();
         if(isInvisible)
@@ -71,7 +71,7 @@ public class MovementComponent : MonoBehaviour
         transform.eulerAngles += transform.up * _rotationValue * rotationSpeed * Time.deltaTime;
     }  
 
-    public void  dash()
+    public void  Dash()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
