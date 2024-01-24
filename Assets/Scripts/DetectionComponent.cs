@@ -53,7 +53,6 @@ public class DetectionComponent : MonoBehaviour
     {
         if (!enemyOwner || !_target)
         { 
-        Debug.Log("failed to find owner or player");
         enemyOwner.SetTarget(_target);
 
             return;

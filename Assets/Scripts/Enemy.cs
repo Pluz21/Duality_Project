@@ -9,6 +9,7 @@ using System;
 public class Enemy : MonoBehaviour
 {
     public event Action OnInRangeToPlayer;
+    public event Action OnTargetSet;
     [SerializeField] bool canStartMoving = false;
     [SerializeField] bool canReturnToInitialPos = false;
     [SerializeField] bool isInRangeToPlayer = false;
@@ -70,6 +71,7 @@ public class Enemy : MonoBehaviour
             return;
         }
         target = _target;
+        OnTargetSet?.Invoke();
         Debug.Log($"Target set! Now chasing : {_target}");
     }
 
