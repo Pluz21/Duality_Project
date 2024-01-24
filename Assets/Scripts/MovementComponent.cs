@@ -18,14 +18,9 @@ public class MovementComponent : MonoBehaviour
 
     [SerializeField] float timeInvi = 6;
 
-    //Raycast elements
-    [SerializeField] Vector3 worldPosition = Vector3.zero;
-    [SerializeField] LayerMask floorMask = 0;
-    [SerializeField] Ray screenRay = new Ray();
-    [SerializeField] bool detectFloor = false;
+ 
 
     //Accessors
-    public Vector3 WorldPosition => worldPosition;
 
     public bool IsCrouching => isCrouching;
     public bool IsInvisible => isInvisible;

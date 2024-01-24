@@ -7,9 +7,20 @@ using UnityEngine;
 
 public class DetectionComponent : MonoBehaviour
 {
-    public event Action<Enemy> OnAggro = null;
+    public event Action<Player> OnAggro = null;
+    [SerializeField] Player player = null;
+
+    // Raycast variables
     [SerializeField] float detectionRange = 10;
-    [SerializeField] List<Enemy> allEnemiesToAggro = null; 
+    [SerializeField] RaycastHit hitPlayer;
+    [SerializeField] GameObject rayCenterStart = null;
+    [SerializeField] GameObject rayRightStart = null;
+    [SerializeField] GameObject rayLeftStart = null;
+    [SerializeField] Ray centerRay;
+    [SerializeField] Ray rightRay;
+    [SerializeField] Ray leftRay;
+    [SerializeField] LayerMask playerLayer = 0;
+    [SerializeField] bool playerDetected = false;
 
     void Update()
     {
@@ -25,7 +36,7 @@ public class DetectionComponent : MonoBehaviour
     void Init()
     {
         InitEvents();
-        allEnemiesToAggro = FindObjectsByType<Enemy>(FindObjectsSortMode.None).ToList();
+        player = FindObjectOfType<Player>();
     }
 
     void InitEvents()
@@ -33,6 +44,41 @@ public class DetectionComponent : MonoBehaviour
     }
     void DetectEnemiesInRange()
     {
+        centerRay = new Ray(rayCenterStart.transform.position, rayCenterStart.transform.forward * detectionRange);
+        leftRay = new Ray(rayLeftStart.transform.position, rayLeftStart.transform.forward * detectionRange);
+        rightRay = new Ray(rayRightStart.transform.position, rayRightStart.transform.forward * detectionRange);
+        bool _hitCenter = Physics.Raycast(centerRay, out RaycastHit _hitPlayerCenter, detectionRange,playerLayer);
+        bool _hitLeft = Physics.Raycast(leftRay, out RaycastHit _hitPlayerLeft, detectionRange,playerLayer);
+        bool _hitRight = Physics.Raycast(rightRay, out RaycastHit _hitPlayerRight, detectionRange,playerLayer);
+
+        if (_hitCenter)
+            hitPlayer = _hitPlayerCenter;
+        if (_hitLeft)
+            hitPlayer = _hitPlayerLeft;
+        if (_hitRight)
+            hitPlayer = _hitPlayerRight;
+        Debug.DrawRay(centerRay.origin, centerRay.direction * detectionRange);
+        Debug.DrawRay(rightRay.origin, rightRay.direction * detectionRange);
+        Debug.DrawRay(leftRay.origin, leftRay.direction * detectionRange);
+
+        playerDetected = _hitCenter || _hitLeft || _hitRight;
+        if (playerDetected)
+        {
+            
+            Debug.DrawRay(centerRay.origin, centerRay.direction * detectionRange, Color.green);
+            Debug.DrawRay(rightRay.origin, rightRay.direction * detectionRange, Color.green);
+            Debug.DrawRay(leftRay.origin, leftRay.direction * detectionRange, Color.green);
+            Debug.Log("Player hit with detection sight");
+            OnAggro?.Invoke(hitPlayer.transform.GetComponent<Player>());
+        }
+        if(!playerDetected)
+        {
+            Debug.DrawRay(centerRay.origin, centerRay.direction * detectionRange, Color.red);
+            Debug.DrawRay(rightRay.origin, rightRay.direction * detectionRange, Color.red);
+            Debug.DrawRay(leftRay.origin, leftRay.direction * detectionRange, Color.red);
+
+        }
+        //Sphere detection
         //float _distance = Vector3.Distance(transform.position, allEnemiesToAggro[0].transform.position);
         //if (_distance <= detectionRange)
         //{
@@ -41,7 +87,7 @@ public class DetectionComponent : MonoBehaviour
         //    AggroEnemies(_enemyToAggro);
         //    OnAggro?.Invoke(_enemyToAggro);
         //}
-       
+
     }
 
     void DetectEnemiesNoMoreInRange(Enemy _currentAggroedEnemy)
@@ -65,5 +111,6 @@ public class DetectionComponent : MonoBehaviour
     private void OnDrawGizmos()
     {
         AnmaGizmos.DrawSphere(transform.position, detectionRange, Color.blue);
+
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(DetectionComponent))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField] bool canStartMoving = false;

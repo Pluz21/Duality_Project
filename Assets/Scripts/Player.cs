@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(InputComponent),typeof(MovementComponent),typeof(DetectionComponent))]
+[RequireComponent(typeof(InputComponent),typeof(MovementComponent))]
 public class Player : MonoBehaviour
 {
     MovementComponent movementComponent = null;
