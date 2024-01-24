@@ -25,6 +25,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] float minDistanceAllowedToInitialPos = 3;
     [SerializeField] float minDistanceAllowedToPlayer = 2;
 
+    //Patrol
+    [SerializeField] EnemyPatrolComponent patrolComponent = null;
+
+    public EnemyPatrolComponent PatrolComponent => patrolComponent;
+
     public GameObject Target => target;
     public bool CanStartMoving 
     {
@@ -46,13 +51,15 @@ public class Enemy : MonoBehaviour
     {
         initialPos = transform.position;
         initialRot = transform.rotation;
+        patrolComponent = GetComponent<EnemyPatrolComponent>();
     }
 
     void Update()
     {
+        if (patrolComponent.CanPatrol) return;
         CheckDistanceToInitialPos();
         if (canStartMoving && target)
-        { 
+        {
             CheckDistanceToPlayer();
             MoveTo(target);
         }
