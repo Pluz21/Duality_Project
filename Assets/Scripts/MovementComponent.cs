@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -16,7 +18,7 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] bool isCrouching = false;
     [SerializeField] bool isInvisible = false;
 
-    [SerializeField] float timeInvi = 6;
+    [SerializeField] float timerInvi = 6;
 
     //Raycast elements
     [SerializeField] Vector3 worldPosition = Vector3.zero;
@@ -24,11 +26,14 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] Ray screenRay = new Ray();
     [SerializeField] bool detectFloor = false;
 
+    // UI
+    [SerializeField] TextMeshProUGUI inviTimer = null;
+    public event Action<float> UITime = null;
     //Accessors
     public Vector3 WorldPosition => worldPosition;
-
     public bool IsCrouching => isCrouching;
     public bool IsInvisible => isInvisible;
+ 
 
 
 
@@ -40,7 +45,7 @@ public class MovementComponent : MonoBehaviour
     void Init()
     {
         input = GetComponent<InputComponent>();
-
+       
     }
 
     // Update is called once per frame
@@ -53,6 +58,9 @@ public class MovementComponent : MonoBehaviour
         Invi();
         if(isInvisible)
             TimeInvi();
+
+        UITime += InviUI;
+        UITime?.Invoke(timerInvi);
     }
 
 
@@ -111,19 +119,26 @@ public class MovementComponent : MonoBehaviour
     }
     public void TimeInvi()
     {
-        if (timeInvi > 0)
+
+        if (timerInvi > 0)
         {
             isInvisible = true;
-            timeInvi -= Time.deltaTime;
+            timerInvi -= Time.deltaTime;
         }
         else
         {
-            timeInvi = 0;
+           
+            timerInvi = 0;
             isInvisible = false;
-            timeInvi = 6;
+            timerInvi = 6;
         }
         
     }
+    public void InviUI (float _value)
+    {
+        inviTimer.text = $"{((int)_value)}";
+    }
+
 
     public void ClickToMove()
     {
