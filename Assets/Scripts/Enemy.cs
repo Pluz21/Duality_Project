@@ -6,10 +6,10 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] bool canStartMoving = false;
-    [SerializeField] Player target = null;
+    [SerializeField] GameObject target = null;
     [SerializeField] float enemyMoveSpeed = 6;
 
-    public Player Target => target;
+    public GameObject Target => target;
     public bool CanStartMoving 
     {
         get { return canStartMoving; }
@@ -22,20 +22,21 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (canStartMoving)
+        if (canStartMoving && target)
             MoveTo();
 
 
     }
-    public void SetTarget(Player _target)
+    public void SetTarget(GameObject _target)
     {
         if (!_target) return;
-        target = _target;  
+        target = _target;
+        Debug.Log($"Target set! Now chasing : {_target}");
     }
 
     public void MoveTo()
     {
-        if (!target) return;
+        if (!target || !canStartMoving) return;
        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Time.deltaTime * enemyMoveSpeed);
         
     }

@@ -7,8 +7,9 @@ using UnityEngine;
 
 public class DetectionComponent : MonoBehaviour
 {
-    public event Action<Player> OnAggro = null;
-    [SerializeField] Player player = null;
+    public event Action<GameObject> OnAggro = null;
+    [SerializeField] GameObject target = null;
+    [SerializeField] Enemy enemyOwner = null;
 
     // Raycast variables
     [SerializeField] float detectionRange = 10;
@@ -24,9 +25,13 @@ public class DetectionComponent : MonoBehaviour
 
     void Update()
     {
-
+        //if (!target)
+        //{
+        //    enemyOwner.CanStartMoving = false;
+        //}
         DetectEnemiesInRange();
-       // DetectEnemiesNoMoreInRange();
+        if(target)
+            DetectTargetNoMoreInRange(target);
     }
     void Start()
     {
@@ -36,12 +41,27 @@ public class DetectionComponent : MonoBehaviour
     void Init()
     {
         InitEvents();
-        player = FindObjectOfType<Player>();
+        //player = FindObjectOfType<Player>();
+        enemyOwner = GetComponent<Enemy>();
     }
 
     void InitEvents()
     {
+        OnAggro += ManageDetect;
     }
+
+    void ManageDetect(GameObject _target)
+    {
+        if (!enemyOwner || !_target)
+        { 
+        Debug.Log("failed to find owner or player");
+        
+        return;
+        }
+        enemyOwner.SetTarget(_target);
+        enemyOwner.CanStartMoving = true;
+    }
+
     void DetectEnemiesInRange()
     {
         centerRay = new Ray(rayCenterStart.transform.position, rayCenterStart.transform.forward * detectionRange);
@@ -57,9 +77,7 @@ public class DetectionComponent : MonoBehaviour
             hitPlayer = _hitPlayerLeft;
         if (_hitRight)
             hitPlayer = _hitPlayerRight;
-        Debug.DrawRay(centerRay.origin, centerRay.direction * detectionRange);
-        Debug.DrawRay(rightRay.origin, rightRay.direction * detectionRange);
-        Debug.DrawRay(leftRay.origin, leftRay.direction * detectionRange);
+       
 
         playerDetected = _hitCenter || _hitLeft || _hitRight;
         if (playerDetected)
@@ -68,8 +86,10 @@ public class DetectionComponent : MonoBehaviour
             Debug.DrawRay(centerRay.origin, centerRay.direction * detectionRange, Color.green);
             Debug.DrawRay(rightRay.origin, rightRay.direction * detectionRange, Color.green);
             Debug.DrawRay(leftRay.origin, leftRay.direction * detectionRange, Color.green);
-            Debug.Log("Player hit with detection sight");
-            OnAggro?.Invoke(hitPlayer.transform.GetComponent<Player>());
+            GameObject _target = hitPlayer.transform.gameObject;
+            target = _target;
+            OnAggro?.Invoke(_target);
+            Debug.Log($"Player hit with detection sight : {_target}");
         }
         if(!playerDetected)
         {
@@ -90,24 +110,22 @@ public class DetectionComponent : MonoBehaviour
 
     }
 
-    void DetectEnemiesNoMoreInRange(Enemy _currentAggroedEnemy)
+    void DetectTargetNoMoreInRange(GameObject _currentTarget)
     {
-        float _distance = Vector3.Distance(transform.position, _currentAggroedEnemy.transform.position);
+        float _distance = Vector3.Distance(transform.position, _currentTarget.transform.position);
         if (_distance >= detectionRange)
         {
-            _currentAggroedEnemy.SetTarget(null);
+            enemyOwner.SetTarget(null);
+            enemyOwner.CanStartMoving = false;
+            target = null;
+            Debug.Log("Dropping aggro, target is out of range");   
         }
     }
     //GameObject GetClosest()
     //{
     //}
 
-    void AggroEnemies(Enemy _enemyToAggro)
-    {
-        Debug.Log("In range to aggro");
-        _enemyToAggro.SetTarget(gameObject.GetComponent<Player>());
-        _enemyToAggro.CanStartMoving = true;
-    }
+
     private void OnDrawGizmos()
     {
         AnmaGizmos.DrawSphere(transform.position, detectionRange, Color.blue);
