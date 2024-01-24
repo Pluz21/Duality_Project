@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using TreeEditor;
 using Unity.VisualScripting;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(DetectionComponent))]
 public class Enemy : MonoBehaviour
 {
+    public event Action OnInRangeToPlayer;
     [SerializeField] bool canStartMoving = false;
     [SerializeField] bool canReturnToInitialPos = false;
+    [SerializeField] bool isInRangeToPlayer = false;
 
     [SerializeField] GameObject target = null;
 
@@ -18,7 +21,8 @@ public class Enemy : MonoBehaviour
     //Return to initial pos
     [SerializeField] Vector3 initialPos = Vector3.zero;
     [SerializeField] Quaternion initialRot = Quaternion.identity;
-    [SerializeField] float minDistanceAllowed = 3;
+    [SerializeField] float minDistanceAllowedToInitialPos = 3;
+    [SerializeField] float minDistanceAllowedToPlayer = 2;
 
     public GameObject Target => target;
     public bool CanStartMoving 
@@ -47,7 +51,10 @@ public class Enemy : MonoBehaviour
     {
         CheckDistanceToInitialPos();
         if (canStartMoving && target)
+        { 
+            CheckDistanceToPlayer();
             MoveTo(target);
+        }
         if (!target && !canStartMoving && transform.position != initialPos)
             canReturnToInitialPos = true;
         if (canReturnToInitialPos)
@@ -91,12 +98,30 @@ public class Enemy : MonoBehaviour
     void CheckDistanceToInitialPos()
     {
         float _distance = Vector3.Distance(transform.position, initialPos);
-        if (_distance <= minDistanceAllowed)
+        if (_distance <= minDistanceAllowedToInitialPos)
         {
             canReturnToInitialPos = false;
             transform.rotation = initialRot;
 
         }
+    }
+    void CheckDistanceToPlayer()
+    {
+        float _distance = Vector3.Distance(transform.position, target.transform.position);
+        if (_distance <= minDistanceAllowedToPlayer && !isInRangeToPlayer)
+        {
+            Debug.Log("In Melee Range of player");
+            canStartMoving = false;
+            OnInRangeToPlayer?.Invoke();   // Do something here like dealing damage or moving backwards or whatever
+            isInRangeToPlayer = true;
+
+        }
+        else if (_distance > minDistanceAllowedToPlayer)
+        {
+            canStartMoving = true;
+            isInRangeToPlayer = false;
+        }
+        
     }
     private void OnCollisionEnter(Collision _collision)
     {
