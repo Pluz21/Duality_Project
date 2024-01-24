@@ -24,10 +24,10 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MousePosition",
+                    "name": "camRot",
                     "type": "Value",
                     "id": "56baca47-9e87-47a7-99ba-a41b8aaf4786",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -124,12 +124,12 @@
                 },
                 {
                     "name": "",
-                    "id": "554f2e93-93df-4b92-9062-5f4feb526bfd",
-                    "path": "<Mouse>/position",
+                    "id": "f5c831b7-742c-4ef5-b950-42bb11b04141",
+                    "path": "<Mouse>/delta/x",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "MousePosition",
+                    "groups": "",
+                    "action": "camRot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

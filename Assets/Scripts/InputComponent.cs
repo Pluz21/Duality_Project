@@ -8,9 +8,10 @@ public class InputComponent : MonoBehaviour
     MyInputs controls = null;
     InputAction move = null;
     InputAction leftClick = null;
-    InputAction mousePos = null;
+    InputAction camRot = null;
 
     public InputAction Move => move;
+    public InputAction CamRot => camRot;
     public InputAction LeftClick => leftClick;
 
     private void Awake()
@@ -32,6 +33,8 @@ public class InputComponent : MonoBehaviour
         move.Enable();
         leftClick = controls.Player.LeftClickMove;
         leftClick.Enable();
+        camRot = controls.Player.camRot;
+        camRot.Enable();
     }
 
 

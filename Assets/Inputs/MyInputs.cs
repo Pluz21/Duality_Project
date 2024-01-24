@@ -46,10 +46,10 @@ public partial class @MyInputs: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""MousePosition"",
+                    ""name"": ""camRot"",
                     ""type"": ""Value"",
                     ""id"": ""56baca47-9e87-47a7-99ba-a41b8aaf4786"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -146,12 +146,12 @@ public partial class @MyInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""554f2e93-93df-4b92-9062-5f4feb526bfd"",
-                    ""path"": ""<Mouse>/position"",
+                    ""id"": ""f5c831b7-742c-4ef5-b950-42bb11b04141"",
+                    ""path"": ""<Mouse>/delta/x"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""MousePosition"",
+                    ""groups"": """",
+                    ""action"": ""camRot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -225,7 +225,7 @@ public partial class @MyInputs: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_LeftClickMove = m_Player.FindAction("LeftClickMove", throwIfNotFound: true);
-        m_Player_MousePosition = m_Player.FindAction("MousePosition", throwIfNotFound: true);
+        m_Player_camRot = m_Player.FindAction("camRot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -289,14 +289,14 @@ public partial class @MyInputs: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_LeftClickMove;
-    private readonly InputAction m_Player_MousePosition;
+    private readonly InputAction m_Player_camRot;
     public struct PlayerActions
     {
         private @MyInputs m_Wrapper;
         public PlayerActions(@MyInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @LeftClickMove => m_Wrapper.m_Player_LeftClickMove;
-        public InputAction @MousePosition => m_Wrapper.m_Player_MousePosition;
+        public InputAction @camRot => m_Wrapper.m_Player_camRot;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -312,9 +312,9 @@ public partial class @MyInputs: IInputActionCollection2, IDisposable
             @LeftClickMove.started += instance.OnLeftClickMove;
             @LeftClickMove.performed += instance.OnLeftClickMove;
             @LeftClickMove.canceled += instance.OnLeftClickMove;
-            @MousePosition.started += instance.OnMousePosition;
-            @MousePosition.performed += instance.OnMousePosition;
-            @MousePosition.canceled += instance.OnMousePosition;
+            @camRot.started += instance.OnCamRot;
+            @camRot.performed += instance.OnCamRot;
+            @camRot.canceled += instance.OnCamRot;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -325,9 +325,9 @@ public partial class @MyInputs: IInputActionCollection2, IDisposable
             @LeftClickMove.started -= instance.OnLeftClickMove;
             @LeftClickMove.performed -= instance.OnLeftClickMove;
             @LeftClickMove.canceled -= instance.OnLeftClickMove;
-            @MousePosition.started -= instance.OnMousePosition;
-            @MousePosition.performed -= instance.OnMousePosition;
-            @MousePosition.canceled -= instance.OnMousePosition;
+            @camRot.started -= instance.OnCamRot;
+            @camRot.performed -= instance.OnCamRot;
+            @camRot.canceled -= instance.OnCamRot;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -394,6 +394,6 @@ public partial class @MyInputs: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLeftClickMove(InputAction.CallbackContext context);
-        void OnMousePosition(InputAction.CallbackContext context);
+        void OnCamRot(InputAction.CallbackContext context);
     }
 }

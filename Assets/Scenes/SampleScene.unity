@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 32, z: -20.98}
+  m_FollowOffset: {x: 0, y: 4.1, z: -18.98}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -383,8 +383,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4752415, y: 0, z: 0, w: 0.8798554}
-  m_LocalPosition: {x: 16.47, y: 32.59, z: -63.489998}
+  m_LocalRotation: {x: 0.10617344, y: 0, z: 0, w: 0.99434763}
+  m_LocalPosition: {x: 16.47, y: 4.69, z: -61.489998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -586,7 +586,8 @@ Transform:
   m_LocalPosition: {x: 16.47, y: 0.59, z: -42.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1886715648}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1770748995
@@ -615,6 +616,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  rotationSpeed: 50
+  DistDash: 5
+  isCrouching: 0
+  isInvisible: 0
+  timeInvi: 6
+  worldPosition: {x: 0, y: 0, z: 0}
+  floorMask:
+    serializedVersion: 2
+    m_Bits: 0
+  detectFloor: 0
 --- !u!114 &1770748997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,13 +702,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886715646}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4752415, y: 0, z: 0, w: 0.8798554}
-  m_LocalPosition: {x: 16.47, y: 32.59, z: -63.489998}
+  m_LocalRotation: {x: 0.10617344, y: -0, z: -0, w: 0.99434763}
+  m_LocalPosition: {x: 0, y: 4.1, z: -18.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 679490321}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1770748994}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -707,4 +718,3 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 1119357256}
   - {fileID: 1770748994}
-  - {fileID: 1886715648}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class MovementComponent : MonoBehaviour
 {
@@ -9,6 +10,13 @@ public class MovementComponent : MonoBehaviour
 
     //Movement variables
     [SerializeField] float moveSpeed = 10;
+    [SerializeField] float rotationSpeed = 50;
+    [SerializeField] float DistDash = 5;
+
+    [SerializeField] bool isCrouching = false;
+    [SerializeField] bool isInvisible = false;
+
+    [SerializeField] float timeInvi = 6;
 
     //Raycast elements
     [SerializeField] Vector3 worldPosition = Vector3.zero;
@@ -18,6 +26,9 @@ public class MovementComponent : MonoBehaviour
 
     //Accessors
     public Vector3 WorldPosition => worldPosition;
+
+    public bool IsCrouching => isCrouching;
+    public bool IsInvisible => isInvisible;
 
 
 
@@ -35,7 +46,13 @@ public class MovementComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Move();
+        Rotate();  
+        dash();
+        Crouch();
+        Invi();
+        if(isInvisible)
+            TimeInvi();
     }
 
 
@@ -47,6 +64,65 @@ public class MovementComponent : MonoBehaviour
             transform.position += transform.forward * _moveDirection.z * Time.deltaTime * moveSpeed;
         if (_moveDirection.x > 0 || _moveDirection.x < 0)
             transform.position += transform.right * _moveDirection.x * Time.deltaTime * moveSpeed;
+    }
+    public void Rotate()
+    {
+        float _rotationValue = input.CamRot.ReadValue<float>();
+        transform.eulerAngles += transform.up * _rotationValue * rotationSpeed * Time.deltaTime;
+    }  
+
+    public void  dash()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isCrouching) return;
+            transform.Translate(Vector3.forward * DistDash);
+        }
+
+    }
+
+    public void Crouch()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if(isCrouching == true)
+            {
+                moveSpeed = 10;
+                isCrouching = false;
+                //Todo Anim 
+            }
+
+            else
+            {
+                moveSpeed = 3;
+                isCrouching = true;
+                //Todo Anim 
+            }
+        }
+    }
+
+    public void Invi()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+           TimeInvi();
+          
+        }
+    }
+    public void TimeInvi()
+    {
+        if (timeInvi > 0)
+        {
+            isInvisible = true;
+            timeInvi -= Time.deltaTime;
+        }
+        else
+        {
+            timeInvi = 0;
+            isInvisible = false;
+            timeInvi = 6;
+        }
+        
     }
 
     public void ClickToMove()
