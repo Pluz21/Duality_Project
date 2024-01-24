@@ -99,9 +99,12 @@ public class DetectionComponent : MonoBehaviour
                 Debug.DrawRay(_rays[i].origin, _rays[i].direction * detectionRange, Color.green);
 
                 GameObject _target = hitPlayer.transform.gameObject;
-                target = _target;
+                if (!target)
+                { 
                 OnAggro?.Invoke(_target);
                 Debug.Log($"Player hit with detection sight: {_target}");
+                target = _target;
+                }
             }
             else
             {

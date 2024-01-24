@@ -77,9 +77,12 @@ public class Enemy : MonoBehaviour
             target = null;              // need to reset if target is null
             return;
         }
-        target = _target;
+        if (!target)
+        { 
         OnTargetSet?.Invoke();
+        target = _target;
         Debug.Log($"Target set! Now chasing : {_target}");
+        }
     }
 
     public void MoveTo(GameObject _target)
