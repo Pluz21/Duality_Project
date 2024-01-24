@@ -12,7 +12,6 @@ public class DetectionComponent : MonoBehaviour
     [SerializeField] Enemy enemyOwner = null;
 
     // Raycast variables
-    [SerializeField] float detectionRange = 10;
     [SerializeField] RaycastHit hitPlayer;
     [SerializeField] GameObject rayCenterStart = null;
     [SerializeField] GameObject rayRightStart = null;
@@ -22,13 +21,11 @@ public class DetectionComponent : MonoBehaviour
     [SerializeField] Ray leftRay;
     [SerializeField] LayerMask playerLayer = 0;
     [SerializeField] bool playerDetected = false;
+    [SerializeField] float detectionRange = 10;
 
     void Update()
     {
-        //if (!target)
-        //{
-        //    enemyOwner.CanStartMoving = false;
-        //}
+        
         DetectEnemiesInRange();
         if(target)
             DetectTargetNoMoreInRange(target);
@@ -41,7 +38,6 @@ public class DetectionComponent : MonoBehaviour
     void Init()
     {
         InitEvents();
-        //player = FindObjectOfType<Player>();
         enemyOwner = GetComponent<Enemy>();
     }
 
@@ -71,15 +67,23 @@ public class DetectionComponent : MonoBehaviour
         bool _hitLeft = Physics.Raycast(leftRay, out RaycastHit _hitPlayerLeft, detectionRange,playerLayer);
         bool _hitRight = Physics.Raycast(rightRay, out RaycastHit _hitPlayerRight, detectionRange,playerLayer);
 
-        if (_hitCenter)
+        if (_hitCenter && _hitPlayerCenter.transform.GetComponent<Player>())
+        { 
             hitPlayer = _hitPlayerCenter;
-        if (_hitLeft)
+            playerDetected = _hitCenter;
+        }
+        if (_hitLeft && _hitPlayerLeft.transform.GetComponent<Player>())
+        { 
             hitPlayer = _hitPlayerLeft;
-        if (_hitRight)
+            playerDetected = _hitLeft;
+        }
+        if (_hitRight && _hitPlayerRight.transform.GetComponent<Player>())
+        { 
             hitPlayer = _hitPlayerRight;
+            playerDetected = _hitRight;
+        }
        
 
-        playerDetected = _hitCenter || _hitLeft || _hitRight;
         if (playerDetected)
         {
             
@@ -98,15 +102,6 @@ public class DetectionComponent : MonoBehaviour
             Debug.DrawRay(leftRay.origin, leftRay.direction * detectionRange, Color.red);
 
         }
-        //Sphere detection
-        //float _distance = Vector3.Distance(transform.position, allEnemiesToAggro[0].transform.position);
-        //if (_distance <= detectionRange)
-        //{
-        //    Enemy _enemyToAggro = allEnemiesToAggro.OrderBy(c => Vector3.Distance(c.transform.position, transform.position)).FirstOrDefault();   // Lambda to order list () equivalent
-        //    if (!_enemyToAggro) return;
-        //    AggroEnemies(_enemyToAggro);
-        //    OnAggro?.Invoke(_enemyToAggro);
-        //}
 
     }
 
@@ -121,9 +116,6 @@ public class DetectionComponent : MonoBehaviour
             Debug.Log("Dropping aggro, target is out of range");   
         }
     }
-    //GameObject GetClosest()
-    //{
-    //}
 
 
     private void OnDrawGizmos()
