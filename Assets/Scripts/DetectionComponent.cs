@@ -32,7 +32,7 @@ public class DetectionComponent : MonoBehaviour
     {
 
         DetectInRange();
-        if(target)
+        if (target)
             DetectTargetNoMoreInRange(target);
     }
     void Start()
@@ -56,8 +56,8 @@ public class DetectionComponent : MonoBehaviour
     void ManageDetect(GameObject _target)
     {
         if (!enemyOwner || !_target)
-        { 
-        enemyOwner.SetTarget(_target);
+        {
+            enemyOwner.SetTarget(_target);
 
             return;
         }
@@ -81,7 +81,7 @@ public class DetectionComponent : MonoBehaviour
         }
 
         int _size = _rays.Count;
-  
+
 
         for (int i = 0; i < _size; i++)
         {
@@ -100,10 +100,10 @@ public class DetectionComponent : MonoBehaviour
 
                 GameObject _target = hitPlayer.transform.gameObject;
                 if (!target)
-                { 
-                OnAggro?.Invoke(_target);
-                Debug.Log($"Player hit with detection sight: {_target}");
-                target = _target;
+                {
+                    OnAggro?.Invoke(_target);
+                    Debug.Log($"Player hit with detection sight: {_target}");
+                    target = _target;
                 }
             }
             else
@@ -132,7 +132,7 @@ public class DetectionComponent : MonoBehaviour
             enemyOwner.SetTarget(null);
             playerDetected = false;
             OnAggroLoss?.Invoke(true);
-            Debug.Log("Dropping aggro, target is out of range");   
+            Debug.Log("Dropping aggro, target is out of range");
         }
     }
     private void ManageAggroLoss(bool _value)
