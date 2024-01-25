@@ -8,7 +8,7 @@ using System;
 [RequireComponent(typeof(DetectionComponent))]
 public class Enemy : MonoBehaviour
 {
-    public event Action OnInRangeToPlayer;
+    public event Action<bool> OnInRangeToPlayer;
     public event Action OnTargetSet;
     [SerializeField] bool canStartMoving = false;
     [SerializeField] bool canReturnToInitialPos = false;
@@ -24,6 +24,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] Quaternion initialRot = Quaternion.identity;
     [SerializeField] float minDistanceAllowedToInitialPos = 3;
     [SerializeField] float minDistanceAllowedToPlayer = 2;
+
+    // Attack - Damage 
+    [SerializeField] int damage = 1;
+    [SerializeField] float attackSpeed = 0.5f;
 
     //Patrol
     [SerializeField] EnemyPatrolComponent patrolComponent = null;
@@ -49,27 +53,37 @@ public class Enemy : MonoBehaviour
 
     void Init()
     {
+        OnInRangeToPlayer += IsInRangeToPlayerLogic;
+        InvokeRepeating(nameof(AttackPlayer), 0, attackSpeed);
+
         initialPos = transform.position;
         initialRot = transform.rotation;
         patrolComponent = GetComponent<EnemyPatrolComponent>();
     }
 
+
     void Update()
     {
+        EnemyLogic();
+
+    }
+
+    void EnemyLogic()
+    {
+
         if (patrolComponent.CanPatrol) return;
         CheckDistanceToInitialPos();
+        CheckDistanceToPlayer();
         if (canStartMoving && target)
         {
-            CheckDistanceToPlayer();
             MoveTo(target);
         }
         if (!target && !canStartMoving && transform.position != initialPos)
             canReturnToInitialPos = true;
         if (canReturnToInitialPos)
             MoveTo(initialPos);
-
-
     }
+
     public void SetTarget(GameObject _target)
     {
         if (!_target)
@@ -123,17 +137,43 @@ public class Enemy : MonoBehaviour
         if (_distance <= minDistanceAllowedToPlayer && !isInRangeToPlayer)
         {
             Debug.Log("In Melee Range of player");
-            canStartMoving = false;
-            OnInRangeToPlayer?.Invoke();   // Do something here like dealing damage or moving backwards or whatever
-            isInRangeToPlayer = true;
+
+            OnInRangeToPlayer?.Invoke(true);   // Do something here like dealing damage or moving backwards or whatever
 
         }
-        else if (_distance > minDistanceAllowedToPlayer)
-        {
-            canStartMoving = true;
-            isInRangeToPlayer = false;
+        else if (_distance >= minDistanceAllowedToPlayer)
+        { 
+            OnInRangeToPlayer?.Invoke(false);
+            Debug.Log("Melee Range of player");
         }
-        
+     
+
+    }
+
+
+
+    void IsInRangeToPlayerLogic(bool _value)
+    {
+        canStartMoving = !_value;
+        isInRangeToPlayer = _value;
+
+
+    }
+
+
+    void AttackPlayer()
+    {
+        if (isInRangeToPlayer && target)
+        {
+            DealDamage();
+        }
+    }
+
+    void DealDamage()
+    {
+        if (!target)return;       
+        Player _player = target.GetComponent<Player>();
+        _player.Life -= damage;
     }
     private void OnCollisionEnter(Collision _collision)
     {
@@ -145,5 +185,6 @@ public class Enemy : MonoBehaviour
         if(target)
         AnmaGizmos.DrawSphere(target.transform.position, 1, Color.green);
         AnmaGizmos.DrawSphere(initialPos, 1, Color.magenta);
+        AnmaGizmos.DrawSphere(transform.position, minDistanceAllowedToPlayer, Color.red);
     }
 }
