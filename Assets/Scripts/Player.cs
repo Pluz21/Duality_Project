@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] int life = 50;
     [SerializeField] int maxLife = 50;
     MovementComponent movementComponent = null;
+    [SerializeField] PlayerAnimation playerAnimation = null;
+
     InputComponent inputComponent = null;
 
     public int MaxLife
@@ -31,6 +33,10 @@ public class Player : MonoBehaviour
     {
         movementComponent = GetComponent<MovementComponent>();
         inputComponent = GetComponent<InputComponent>();
+        playerAnimation = GetComponent<PlayerAnimation>();
+        movementComponent.OnforwardAxis += playerAnimation.UpdateForwardAnimatorParam;
+        movementComponent.OnRightAxis += playerAnimation.UpdateRightAnimatorParam;
+        movementComponent.OnRotationAxis += playerAnimation.UpdateRotateAnimatorParam;
 
     }
 
