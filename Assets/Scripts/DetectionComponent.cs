@@ -23,6 +23,10 @@ public class DetectionComponent : MonoBehaviour
     [SerializeField] LayerMask playerLayer = 0;
     [SerializeField] bool playerDetected = false;
     [SerializeField] float detectionRange = 10;
+    [SerializeField] int amountOfRays = 10;
+
+
+
 
     void Update()
     {
@@ -57,6 +61,7 @@ public class DetectionComponent : MonoBehaviour
 
             return;
         }
+        enemyOwner.PatrolComponent.CanPatrol = false;
         enemyOwner.SetTarget(_target);
         enemyOwner.CanStartMoving = true;
     }
@@ -64,13 +69,19 @@ public class DetectionComponent : MonoBehaviour
     void DetectInRange()
     {
         List<Ray> _rays = new List<Ray>();
-        centerRay = new Ray(rayCenterStart.transform.position, rayCenterStart.transform.forward * detectionRange);
-        _rays.Add(centerRay);
-        leftRay = new Ray(rayLeftStart.transform.position, rayLeftStart.transform.forward * detectionRange);
-        _rays.Add(leftRay);
-        rightRay = new Ray(rayRightStart.transform.position, rayRightStart.transform.forward * detectionRange);
-        _rays.Add(rightRay);
+
+        for (int i = 0; i < amountOfRays; i++)
+        {
+            float _angle = -60 + i * 120 / amountOfRays;    // has to make 180 combined to align with the enemy
+            Quaternion _rotation = Quaternion.Euler(0, _angle, 0);
+            Vector3 direction = _rotation * rayCenterStart.transform.forward;
+
+            Ray ray = new Ray(rayCenterStart.transform.position, direction * detectionRange);
+            _rays.Add(ray);
+        }
+
         int _size = _rays.Count;
+  
 
         for (int i = 0; i < _size; i++)
         {
@@ -82,6 +93,10 @@ public class DetectionComponent : MonoBehaviour
                 playerDetected = _hit;
                 break;
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 4fd07e5 (Revert "Revert "Merge branch 'DevBranch'"")
             if (playerDetected)
             {
 
@@ -92,10 +107,16 @@ public class DetectionComponent : MonoBehaviour
                 target = _target;
                 OnAggro?.Invoke(_target);
                 Debug.Log($"Player hit with detection sight: {_target}");
+<<<<<<< HEAD
+=======
+                target = _target;
+                }
+>>>>>>> parent of 4fd07e5 (Revert "Revert "Merge branch 'DevBranch'"")
             }
             if (!playerDetected)
             {
                 Debug.DrawRay(_rays[i].origin, _rays[i].direction * detectionRange, Color.red);
+<<<<<<< HEAD
 
                 if (playerDetected)
                 {
@@ -118,6 +139,19 @@ public class DetectionComponent : MonoBehaviour
                 }
             }
         }
+=======
+                enemyOwner.SetTarget(null);
+                OnAggro?.Invoke(null);
+            }
+        }
+
+
+
+
+
+
+
+>>>>>>> parent of 4fd07e5 (Revert "Revert "Merge branch 'DevBranch'"")
     }
 
 
@@ -132,15 +166,14 @@ public class DetectionComponent : MonoBehaviour
             target = null;
             enemyOwner.SetTarget(null);
             playerDetected = false;
-            enemyOwner.PatrolComponent.SetCanPatrol(true);
-
             OnAggroLoss?.Invoke(true);
             Debug.Log("Dropping aggro, target is out of range");   
         }
     }
     private void ManageAggroLoss(bool _value)
     {
-       
+        enemyOwner.PatrolComponent.CanPatrol = true;
+
     }
 
 
