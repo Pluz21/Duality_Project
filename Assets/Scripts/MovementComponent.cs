@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
+
 
 public class MovementComponent : MonoBehaviour
 {
@@ -14,6 +13,8 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] float moveSpeed = 10;
     [SerializeField] float rotationSpeed = 50;
     [SerializeField] float DistDash = 5;
+    [SerializeField] int numberDash = 3;
+    [SerializeField] float regenDash = 5;
 
     [SerializeField] bool isCrouching = false;
     [SerializeField] bool isInvisible = false;
@@ -27,13 +28,22 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] bool detectFloor = false;
 
     // UI
-    [SerializeField] TextMeshProUGUI inviTimer = null;
-    public event Action<float> UITime = null;
+    
     //Accessors
     public Vector3 WorldPosition => worldPosition;
     public bool IsCrouching => isCrouching;
     public bool IsInvisible => isInvisible;
- 
+    public int NumberDash => numberDash;
+    public float RegenDash
+    {
+        get { return regenDash; }
+        set { regenDash = value; }
+    }
+    public float TimerInvi
+    {
+        get { return timerInvi; }
+        set { timerInvi = value; }
+    }
 
 
 
@@ -56,11 +66,11 @@ public class MovementComponent : MonoBehaviour
         Dash();
         Crouch();
         Invi();
-        if(isInvisible)
+        Timedash();
+        if (isInvisible)
             TimeInvi();
 
-        UITime += InviUI;
-        UITime?.Invoke(timerInvi);
+       
     }
 
 
@@ -81,10 +91,11 @@ public class MovementComponent : MonoBehaviour
 
     public void  Dash()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && numberDash >= 1)
         {
             if (isCrouching) return;
             transform.Translate(Vector3.forward * DistDash);
+            numberDash--;
         }
 
     }
@@ -134,10 +145,22 @@ public class MovementComponent : MonoBehaviour
         }
         
     }
-    public void InviUI (float _value)
+    public void Timedash()
     {
-        inviTimer.text = $"{((int)_value)}";
+        if(numberDash <= 2 && regenDash >0)
+        {
+            regenDash -= Time.deltaTime;
+            if (regenDash <= 0)
+                numberDash++;
+        }
+        else
+        {
+            regenDash = 0;
+            regenDash = 8;
+        }
+        
     }
+    
 
 
     public void ClickToMove()

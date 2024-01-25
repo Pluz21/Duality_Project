@@ -5,8 +5,21 @@ using UnityEngine;
 [RequireComponent(typeof(InputComponent),typeof(MovementComponent),typeof(DetectionComponent))]
 public class Player : MonoBehaviour
 {
+    [SerializeField] int life = 50;
+    [SerializeField] int maxLife = 50;
     MovementComponent movementComponent = null;
     InputComponent inputComponent = null;
+
+    public int MaxLife
+    {
+        get { return maxLife; }
+        set { maxLife = value; }
+    }
+    public int Life
+    {
+        get { return life; }
+        set { life = value; }
+    }
 
     // Start is called before the first frame update
     void Start()
