@@ -82,53 +82,46 @@ public class DetectionComponent : MonoBehaviour
                 playerDetected = _hit;
                 break;
             }
-        if (playerDetected)
-        {
-            
-            Debug.DrawRay(_rays[i].origin, _rays[i].direction * detectionRange, Color.green);
-          
-
-<<<<<<< Updated upstream
-            GameObject _target = hitPlayer.transform.gameObject;
-            target = _target;
-            OnAggro?.Invoke(_target);
-            Debug.Log($"Player hit with detection sight: {_target}");
-        }
-        if(!playerDetected)
-        {
-            Debug.DrawRay(_rays[i].origin, _rays[i].direction * detectionRange, Color.red);
-=======
             if (playerDetected)
             {
+
                 Debug.DrawRay(_rays[i].origin, _rays[i].direction * detectionRange, Color.green);
 
+
                 GameObject _target = hitPlayer.transform.gameObject;
-                if (!target)
-                { 
+                target = _target;
                 OnAggro?.Invoke(_target);
                 Debug.Log($"Player hit with detection sight: {_target}");
-                target = _target;
-                enemyOwner.PatrolComponent.SetCanPatrol(false);
-                }
             }
-            else
+            if (!playerDetected)
             {
                 Debug.DrawRay(_rays[i].origin, _rays[i].direction * detectionRange, Color.red);
->>>>>>> Stashed changes
-                enemyOwner.SetTarget(null);
-                OnAggro?.Invoke(null);
+
+                if (playerDetected)
+                {
+                    Debug.DrawRay(_rays[i].origin, _rays[i].direction * detectionRange, Color.green);
+
+                    GameObject _target = hitPlayer.transform.gameObject;
+                    if (!target)
+                    {
+                        OnAggro?.Invoke(_target);
+                        Debug.Log($"Player hit with detection sight: {_target}");
+                        target = _target;
+                        enemyOwner.PatrolComponent.SetCanPatrol(false);
+                    }
+                }
+                else
+                {
+                    Debug.DrawRay(_rays[i].origin, _rays[i].direction * detectionRange, Color.red);
+                    enemyOwner.SetTarget(null);
+                    OnAggro?.Invoke(null);
+                }
+            }
         }
-        }
-      
-
-<<<<<<< Updated upstream
-        
-        
-
-=======
->>>>>>> Stashed changes
-
     }
+
+
+    
 
     void DetectTargetNoMoreInRange(GameObject _currentTarget)
     {
