@@ -16,8 +16,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] GameObject target = null;
 
-    [SerializeField] float enemyMoveSpeed = 12;
-    [SerializeField] float enemyRotateSpeed = 20;
+    [SerializeField] float enemyMoveSpeed = 6;
+    [SerializeField] float enemyRotateSpeed = 60;
 
     //Return to initial pos
     [SerializeField] Vector3 initialPos = Vector3.zero;
