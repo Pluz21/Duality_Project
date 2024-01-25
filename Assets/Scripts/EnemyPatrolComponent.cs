@@ -11,9 +11,8 @@ public class EnemyPatrolComponent : MonoBehaviour
     [SerializeField] Path currentPath = null;
     [SerializeField] List<Vector3> allPoints = new List<Vector3>();
     [SerializeField] int pathIndex = 0;
+    [SerializeField] int nextPathIndexValue = 1;
     [SerializeField] bool canPatrol = true;
-    [SerializeField] float patrolSpeed = 5;
-    [SerializeField] float patrolRotateSpeed = 5;
     [SerializeField] float minDistanceAllowedtoPathPoint = 0.5f;
 
     [SerializeField] Enemy enemy = null;
@@ -93,7 +92,7 @@ public class EnemyPatrolComponent : MonoBehaviour
 
     void UpdatePathIndex()
     {
-        if (pathIndex + 1 >= currentPath.AllPathPoints.Count)
+        if (pathIndex + nextPathIndexValue >= currentPath.AllPathPoints.Count)
         {
             pathIndex = 0;
             //SetCanPatrol(false);

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 28f3b3a8d4c04354ea7b743566fadbe2
+<<<<<<<< Updated upstream:Assets/ExternalAssets/Gizmos/AnmaGizmos .unitypackage.meta
+guid: 70bb1b95c2e96ba4cabfe6150a7bf587
+========
+guid: 250b6572fcc428948918fe59a39c049c
+>>>>>>>> Stashed changes:Assets/Scenes/TimScenes/TimScene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

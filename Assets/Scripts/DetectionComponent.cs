@@ -23,10 +23,6 @@ public class DetectionComponent : MonoBehaviour
     [SerializeField] LayerMask playerLayer = 0;
     [SerializeField] bool playerDetected = false;
     [SerializeField] float detectionRange = 10;
-    [SerializeField] int amountOfRays = 10;
-
-
-
 
     void Update()
     {
@@ -61,7 +57,6 @@ public class DetectionComponent : MonoBehaviour
 
             return;
         }
-        enemyOwner.PatrolComponent.CanPatrol = false;
         enemyOwner.SetTarget(_target);
         enemyOwner.CanStartMoving = true;
     }
@@ -69,19 +64,13 @@ public class DetectionComponent : MonoBehaviour
     void DetectInRange()
     {
         List<Ray> _rays = new List<Ray>();
-
-        for (int i = 0; i < amountOfRays; i++)
-        {
-            float _angle = -60 + i * 120 / amountOfRays;    // has to make 180 combined to align with the enemy
-            Quaternion _rotation = Quaternion.Euler(0, _angle, 0);
-            Vector3 direction = _rotation * rayCenterStart.transform.forward;
-
-            Ray ray = new Ray(rayCenterStart.transform.position, direction * detectionRange);
-            _rays.Add(ray);
-        }
-
+        centerRay = new Ray(rayCenterStart.transform.position, rayCenterStart.transform.forward * detectionRange);
+        _rays.Add(centerRay);
+        leftRay = new Ray(rayLeftStart.transform.position, rayLeftStart.transform.forward * detectionRange);
+        _rays.Add(leftRay);
+        rightRay = new Ray(rayRightStart.transform.position, rayRightStart.transform.forward * detectionRange);
+        _rays.Add(rightRay);
         int _size = _rays.Count;
-  
 
         for (int i = 0; i < _size; i++)
         {
@@ -93,7 +82,22 @@ public class DetectionComponent : MonoBehaviour
                 playerDetected = _hit;
                 break;
             }
+        if (playerDetected)
+        {
+            
+            Debug.DrawRay(_rays[i].origin, _rays[i].direction * detectionRange, Color.green);
+          
 
+<<<<<<< Updated upstream
+            GameObject _target = hitPlayer.transform.gameObject;
+            target = _target;
+            OnAggro?.Invoke(_target);
+            Debug.Log($"Player hit with detection sight: {_target}");
+        }
+        if(!playerDetected)
+        {
+            Debug.DrawRay(_rays[i].origin, _rays[i].direction * detectionRange, Color.red);
+=======
             if (playerDetected)
             {
                 Debug.DrawRay(_rays[i].origin, _rays[i].direction * detectionRange, Color.green);
@@ -104,21 +108,25 @@ public class DetectionComponent : MonoBehaviour
                 OnAggro?.Invoke(_target);
                 Debug.Log($"Player hit with detection sight: {_target}");
                 target = _target;
+                enemyOwner.PatrolComponent.SetCanPatrol(false);
                 }
             }
             else
             {
                 Debug.DrawRay(_rays[i].origin, _rays[i].direction * detectionRange, Color.red);
+>>>>>>> Stashed changes
                 enemyOwner.SetTarget(null);
                 OnAggro?.Invoke(null);
-            }
         }
+        }
+      
 
+<<<<<<< Updated upstream
+        
+        
 
-
-
-
-
+=======
+>>>>>>> Stashed changes
 
     }
 
@@ -131,14 +139,15 @@ public class DetectionComponent : MonoBehaviour
             target = null;
             enemyOwner.SetTarget(null);
             playerDetected = false;
+            enemyOwner.PatrolComponent.SetCanPatrol(true);
+
             OnAggroLoss?.Invoke(true);
             Debug.Log("Dropping aggro, target is out of range");   
         }
     }
     private void ManageAggroLoss(bool _value)
     {
-        enemyOwner.PatrolComponent.CanPatrol = true;
-
+       
     }
 
 
