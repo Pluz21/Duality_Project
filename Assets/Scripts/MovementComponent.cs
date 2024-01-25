@@ -8,6 +8,8 @@ using UnityEngine;
 public class MovementComponent : MonoBehaviour
 {
     private InputComponent input = null;
+    [SerializeField] Player playerRef = null;
+
 
     //Movement variables
     [SerializeField] float moveSpeed = 10;
@@ -27,8 +29,13 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] Ray screenRay = new Ray();
     [SerializeField] bool detectFloor = false;
 
-    // UI
+    //event anim
+    public event Action<float> OnforwardAxis = null;
+    public event Action<float> OnRightAxis = null;
+    public event Action<float> OnRotationAxis = null;
+
     
+
     //Accessors
     public Vector3 WorldPosition => worldPosition;
     public bool IsCrouching => isCrouching;
@@ -78,15 +85,19 @@ public class MovementComponent : MonoBehaviour
     {
         Vector3 _moveDirection = input.Move.ReadValue<Vector3>();
 
-        if (_moveDirection.z > 0 || _moveDirection.z < 0)
-            transform.position += transform.forward * _moveDirection.z * Time.deltaTime * moveSpeed;
-        if (_moveDirection.x > 0 || _moveDirection.x < 0)
-            transform.position += transform.right * _moveDirection.x * Time.deltaTime * moveSpeed;
+        if (playerRef == null) return;
+
+        transform.position += transform.forward * _moveDirection.z * Time.deltaTime * moveSpeed;
+        OnforwardAxis?.Invoke(_moveDirection.z);
+        transform.position += transform.right * _moveDirection.x * Time.deltaTime * moveSpeed;
+        OnRightAxis?.Invoke(_moveDirection.x);
+        
     }
     public void Rotate()
     {
         float _rotationValue = input.CamRot.ReadValue<float>();
         transform.eulerAngles += transform.up * _rotationValue * rotationSpeed * Time.deltaTime;
+        OnRotationAxis?.Invoke(_rotationValue);
     }  
 
     public void  Dash()
