@@ -61,6 +61,13 @@ public class Enemy : MonoBehaviour
         patrolComponent = GetComponent<EnemyPatrolComponent>();
     }
 
+    public void DropAggroLogic()
+    {
+        canStartMoving = false;
+        canReturnToInitialPos = true;
+        isInRangeToPlayer = false;
+    }
+
 
     void Update()
     {
@@ -70,10 +77,12 @@ public class Enemy : MonoBehaviour
 
     void EnemyLogic()
     {
-
         if (patrolComponent.CanPatrol) return;
         CheckDistanceToInitialPos();
+
         CheckDistanceToPlayer();
+       
+            
         if (canStartMoving && target)
         {
             MoveTo(target);
@@ -95,7 +104,7 @@ public class Enemy : MonoBehaviour
         { 
         OnTargetSet?.Invoke();
         target = _target;
-        Debug.Log($"Target set! Now chasing : {_target}");
+        //Debug.Log($"Target set! Now chasing : {_target}");
         }
     }
 
@@ -136,7 +145,7 @@ public class Enemy : MonoBehaviour
         float _distance = Vector3.Distance(transform.position, target.transform.position);
         if (_distance <= minDistanceAllowedToPlayer && !isInRangeToPlayer)
         {
-            Debug.Log("In Melee Range of player");
+            //Debug.Log("In Melee Range of player");
 
             OnInRangeToPlayer?.Invoke(true);   // Do something here like dealing damage or moving backwards or whatever
 
@@ -144,7 +153,7 @@ public class Enemy : MonoBehaviour
         else if (_distance >= minDistanceAllowedToPlayer)
         { 
             OnInRangeToPlayer?.Invoke(false);
-            Debug.Log("Melee Range of player");
+            //Debug.Log("Melee Range of player");
         }
      
 
@@ -169,6 +178,18 @@ public class Enemy : MonoBehaviour
         }
     }
 
+   public bool CheckPlayerIsInvisible()
+    {
+        if (target && target.GetComponent<Player>())
+        {
+            Player _target = target.GetComponent<Player>();
+            bool _isInvi = _target.GetComponent<MovementComponent>().IsInvisible;
+            if (_isInvi)
+                return true;
+
+        }
+        return false;
+    }
     void DealDamage()
     {
         if (!target)return;       
@@ -182,9 +203,9 @@ public class Enemy : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        if(target)
-        AnmaGizmos.DrawSphere(target.transform.position, 1, Color.green);
-        AnmaGizmos.DrawSphere(initialPos, 1, Color.magenta);
-        AnmaGizmos.DrawSphere(transform.position, minDistanceAllowedToPlayer, Color.red);
+        //if(target)
+        //AnmaGizmos.DrawSphere(target.transform.position, 1, Color.green);
+        //AnmaGizmos.DrawSphere(initialPos, 1, Color.magenta);
+        //AnmaGizmos.DrawSphere(transform.position, minDistanceAllowedToPlayer, Color.red);
     }
 }

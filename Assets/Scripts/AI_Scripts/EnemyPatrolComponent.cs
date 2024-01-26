@@ -29,7 +29,8 @@ public class EnemyPatrolComponent : MonoBehaviour
         OnPathReceived += (pathValid) =>
         {
             SetCanPatrol(pathValid);
-            Debug.Log($"Path Received. It is {(pathValid ? "Valid" : "invalid")}");
+            
+            //($"Path Received. It is {(pathValid ? "Valid" : "invalid")}");
         };
 
     }
