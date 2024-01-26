@@ -101,7 +101,7 @@ public class Enemy : MonoBehaviour
 
     public void MoveTo(GameObject _target)
     {
-       transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, Time.deltaTime * enemyMoveSpeed);
+       transform.position = Vector3.MoveTowards(transform.position, _target.transform.position + new Vector3(0,1,0), Time.deltaTime * enemyMoveSpeed);
        RotateTo(_target.transform.position);
 
     }

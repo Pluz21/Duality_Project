@@ -106,7 +106,7 @@ public class MovementComponent : MonoBehaviour
 
     public void  Dash()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && numberDash >= 1)
+        if (Input.GetKeyDown(KeyCode.Space) && numberDash >= 1 && !isDashing)
         {
             Debug.Log("dashing");
             if (isCrouching) return;
@@ -116,12 +116,8 @@ public class MovementComponent : MonoBehaviour
             OnDash?.Invoke();
         }
 
-           
-        
-        
         if (Input.GetKeyUp(KeyCode.Space))
-            dash?.Invoke(isDashing = false);
-            
+            dash?.Invoke(isDashing = false);    
 
     }
 
