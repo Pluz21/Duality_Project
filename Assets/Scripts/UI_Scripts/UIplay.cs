@@ -10,6 +10,9 @@ public class UIplay : MonoBehaviour
     [SerializeField] TextMeshProUGUI dashTime = null;
     [SerializeField] TextMeshProUGUI dashNumber = null;
     [SerializeField] TextMeshProUGUI inviTimer = null;
+    [SerializeField] Image dashIcon = null;
+    [SerializeField] Color dashUsedIconColor = new Color();
+    Color dashInitialIconColor = new Color();
     [SerializeField] Slider sliderLife = null;
     public event Action<float> UINumbreDash = null;
     public event Action<float> UITime = null;
@@ -20,7 +23,22 @@ public class UIplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Init();
+       
+    }
+
+    void Init()
+    {
+        dashInitialIconColor = dashIcon.canvasRenderer.GetColor();
+
+        refplayer.OnDash += UpdateDashUsedIconColor;
+        refplayer.OnDashFinished += ResetDashIconColor;
+    }
+
+    private void ResetDashIconColor()
+    {
+        dashIcon.canvasRenderer.SetColor(dashInitialIconColor);
+
     }
 
     // Update is called once per frame
@@ -37,6 +55,11 @@ public class UIplay : MonoBehaviour
 
         UITime += TimerDash;
         UITime?.Invoke(refplayer.RegenDash);
+    }
+
+    public void UpdateDashUsedIconColor()
+    {
+        dashIcon.canvasRenderer.SetColor(dashUsedIconColor);
     }
     public void TimerDash(float _value)
     {

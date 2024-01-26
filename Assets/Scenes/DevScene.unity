@@ -653,6 +653,7 @@ GameObject:
   - component: {fileID: 1118978707}
   - component: {fileID: 1118978709}
   - component: {fileID: 1118978708}
+  - component: {fileID: 1118978710}
   m_Layer: 5
   m_Name: MoonSunIndicator
   m_TagString: Untagged
@@ -719,6 +720,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118978706}
   m_CullTransparentMesh: 1
+--- !u!114 &1118978710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118978706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a82eb0bcef1a324e927f4146778c548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayNight: {fileID: 0}
+  moonIcon: {fileID: 891786146}
+  sunIcon: {fileID: 1392129499}
 --- !u!1 &1308060270
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,7 +923,7 @@ MonoBehaviour:
   speedSun: 10
   sun: {fileID: 1951220568}
   currentTime: 0
-  maxTime: 9.2
+  maxTime: 2
   dayState: 0
 --- !u!1 &1392129499
 GameObject:
@@ -4854,7 +4870,7 @@ GameObject:
   - component: {fileID: 2150968563155570038}
   - component: {fileID: 1392848961261494736}
   m_Layer: 0
-  m_Name: MIniMapCamera
+  m_Name: MiniMapCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8432,6 +8448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRef: {fileID: 8331539509996541803}
+  dayNight: {fileID: 0}
   moveSpeed: 10
   rotationSpeed: 50
   DistDash: 5
@@ -8516,6 +8533,8 @@ MonoBehaviour:
   dashTime: {fileID: 78234228360151731}
   dashNumber: {fileID: 8021276210102358915}
   inviTimer: {fileID: 3753222391437443975}
+  dashIcon: {fileID: 8121578567347111313}
+  dashUsedIconColor: {r: 0.3886792, g: 0.3886792, b: 0.3886792, a: 1}
   sliderLife: {fileID: 4094833424456367711}
   refplayer: {fileID: 8331539509996541804}
   refLifeplayer: {fileID: 8331539509996541803}

@@ -32,7 +32,7 @@ public class DayNight : MonoBehaviour
     {
         dayState = DayState.DAY;
         //maxTime = speedSun/2 - 0.8f;
-        speedSun = 180 /maxTime;
+        speedSun = 180 /maxTime;       // Scaling the sunSpeed to the maxTime (one day or one night is 180 degrees)
         OnTimeElapsed += SetDayNightState;
     }
 

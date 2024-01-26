@@ -8,8 +8,11 @@ using UnityEngine;
 public class MovementComponent : MonoBehaviour
 {
     private InputComponent input = null;
+
     [SerializeField] Player playerRef = null;
 
+    // Managers
+    [SerializeField] DayNight dayNight = null;
 
     //Movement variables
     [SerializeField] float moveSpeed = 10;
@@ -39,6 +42,7 @@ public class MovementComponent : MonoBehaviour
     public event Action<bool> dash = null;
     public event Action<bool> invi = null;
     public event Action OnDash = null;
+    public event Action OnDashFinished = null;
 
     
 
@@ -67,10 +71,16 @@ public class MovementComponent : MonoBehaviour
     void Init()
     {
         input = GetComponent<InputComponent>();
-       
+        dayNight = FindAnyObjectByType<DayNight>();
+        InitEvents();
+
     }
 
-    // Update is called once per frame
+    void InitEvents()
+    {
+        dayNight.OnNightStarted += EnableInvisibility;
+        dayNight.OnDayStarted += DisableInvisibility;
+    }
     void Update()
     {
         Move();
@@ -119,7 +129,10 @@ public class MovementComponent : MonoBehaviour
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
-            dash?.Invoke(isDashing = false);    
+        { 
+            dash?.Invoke(isDashing = false);
+            OnDashFinished?.Invoke();
+        }
 
     }
 
@@ -147,6 +160,7 @@ public class MovementComponent : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
+           if (canBecomeInvisible)
            TimeInvi();
           
         }
@@ -185,8 +199,16 @@ public class MovementComponent : MonoBehaviour
         }
         
     }
-    
 
+    void EnableInvisibility()
+    {
+        canBecomeInvisible = true; 
+    }
+
+    void DisableInvisibility()
+    {
+        canBecomeInvisible = false;
+    }
 
     public void ClickToMove()
     {

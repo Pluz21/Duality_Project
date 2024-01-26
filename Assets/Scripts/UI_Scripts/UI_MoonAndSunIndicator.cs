@@ -17,16 +17,17 @@ public class UI_MoonAndSunIndicator : MonoBehaviour
     {
         if(!dayNight)
         dayNight = FindAnyObjectByType<DayNight>();
+        dayNight.OnDayStarted += SunIconLogic;
+        dayNight.OnNightStarted += MoonIconLogic;
         CheckDayState();
     }
 
     void CheckDayState()
     {
-        dayNight.OnDayStarted += SunIconLogic;
-        dayNight.OnNightStarted += MoonIconLogic;
+        
         if (dayNight.DayStateRef == DayState.NIGHT)
         {
-            Debug.Log($"REF TO DAYSTATE {dayNight.DayStateRef}");
+           // Debug.Log($"REF TO DAYSTATE {dayNight.DayStateRef}");
             MoonIconLogic();
 
         }
