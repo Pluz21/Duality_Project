@@ -923,7 +923,7 @@ MonoBehaviour:
   speedSun: 10
   sun: {fileID: 1951220568}
   currentTime: 0
-  maxTime: 10
+  maxTime: 2
   dayState: 0
 --- !u!1 &1392129499
 GameObject:
