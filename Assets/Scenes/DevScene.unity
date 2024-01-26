@@ -1931,7 +1931,7 @@ MonoBehaviour:
   canStartMoving: 0
   canReturnToInitialPos: 0
   isInRangeToPlayer: 0
-  target: {fileID: 0}
+  target: {fileID: 7189556745234468932}
   enemyMoveSpeed: 18.5
   enemyRotateSpeed: 60
   initialPos: {x: 0, y: 0, z: 0}
@@ -5055,8 +5055,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3211360719677247409}
   m_HandleRect: {fileID: 8796962006375260579}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0
+  m_Size: 0.8049357
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8038,8 +8038,8 @@ RectTransform:
   m_GameObject: {fileID: 3144723478476961267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3684184983641744209}
   - {fileID: 1927870619884301253}

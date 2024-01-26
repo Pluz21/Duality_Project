@@ -8,8 +8,14 @@ using System;
 [RequireComponent(typeof(DetectionComponent))]
 public class Enemy : MonoBehaviour
 {
+    //Events
     public event Action<bool> OnInRangeToPlayer;
     public event Action OnTargetSet;
+
+    //Manager
+    [SerializeField] EnemyManager enemyManager = null;
+
+    //Variables
     [SerializeField] bool canStartMoving = false;
     [SerializeField] bool canReturnToInitialPos = false;
     [SerializeField] bool isInRangeToPlayer = false;
@@ -35,6 +41,11 @@ public class Enemy : MonoBehaviour
     public EnemyPatrolComponent PatrolComponent => patrolComponent;
 
     public GameObject Target => target;
+    public int Damage 
+    {
+        get { return damage; }
+        set { damage = value; }
+    }
     public bool CanStartMoving 
     {
         get { return canStartMoving; }
@@ -53,7 +64,8 @@ public class Enemy : MonoBehaviour
 
     void Init()
     {
-        
+        enemyManager = FindAnyObjectByType<EnemyManager>();
+        enemyManager.AddElement(this);
         OnInRangeToPlayer += IsInRangeToPlayerLogic;
         InvokeRepeating(nameof(AttackPlayer), 0, attackSpeed);
 

@@ -24,8 +24,8 @@ public class DayNight : MonoBehaviour
        // Debug.Log(sun.transform.localRotation.x);
         //Debug.Log(sun.transform.localRotation.x);
         //if (sun.transform.rotation.x >- 0.1 || sun.transform.rotation.x > 0.96)
-        if (sun.transform.localRotation.x > -0.1 || sun.transform.localRotation.x > 0.96)
-           Debug.Log("night");
+        //if (sun.transform.localRotation.x > -0.1 || sun.transform.localRotation.x > 0.96)
+           //Debug.Log("night");
       //  sun.transform.rotation.x
         
     }
