@@ -15,8 +15,8 @@ public class DetectionComponent : MonoBehaviour
     // Raycast variables
     [SerializeField] RaycastHit hitPlayer;
     [SerializeField] GameObject rayCenterStart = null;
-    [SerializeField] GameObject rayRightStart = null;
-    [SerializeField] GameObject rayLeftStart = null;
+    //[SerializeField] GameObject rayRightStart = null;
+    //[SerializeField] GameObject  rayLeftStart = null;
     [SerializeField] Ray centerRay;
     [SerializeField] Ray rightRay;
     [SerializeField] Ray leftRay;
@@ -68,7 +68,6 @@ public class DetectionComponent : MonoBehaviour
 
     void DetectInRange()
     {
-        if (enemyOwner.CheckPlayerIsInvisible()) return;
         List<Ray> _rays = new List<Ray>();
 
         for (int i = 0; i < amountOfRays; i++)
@@ -97,13 +96,13 @@ public class DetectionComponent : MonoBehaviour
 
             if (playerDetected)
             {
-                //Debug.DrawRay(_rays[i].origin, _rays[i].direction * detectionRange, Color.green);
+                Debug.DrawRay(_rays[i].origin, _rays[i].direction * detectionRange, Color.green);
 
                 GameObject _target = hitPlayer.transform.gameObject;
                 if (!target)
                 {
                     OnAggro?.Invoke(_target);
-                    //Debug.Log($"Player hit with detection sight: {_target}");
+                    Debug.Log($"Player hit with detection sight: {_target}");
                     target = _target;
                 }
             }
@@ -133,7 +132,7 @@ public class DetectionComponent : MonoBehaviour
             enemyOwner.SetTarget(null);
             playerDetected = false;
             OnAggroLoss?.Invoke(true);
-            //Debug.Log("Dropping aggro, target is out of range");
+            Debug.Log("Dropping aggro, target is out of range");
         }
     }
     private void ManageAggroLoss(bool _value)
@@ -146,7 +145,7 @@ public class DetectionComponent : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        //AnmaGizmos.DrawSphere(transform.position, detectionRange, Color.blue);
+        AnmaGizmos.DrawSphere(transform.position, detectionRange, Color.blue);
 
     }
 

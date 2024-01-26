@@ -134,6 +134,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "GameMenu",
+            "id": "6913561d-74f0-409d-b9cf-489d9ade01a4",
+            "actions": [
+                {
+                    "name": "MenuInteract",
+                    "type": "Button",
+                    "id": "b165f9ea-0977-4276-a6e7-60d9942eee10",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "130f6694-2391-46ec-aaaf-624d1ebc6277",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MenuInteract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b08d857a-c4f8-4876-ba9b-59acd1325cc8",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MenuInteract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
