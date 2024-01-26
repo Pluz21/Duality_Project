@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
         movementComponent.OnforwardAxis += playerAnimation.UpdateForwardAnimatorParam;
         movementComponent.OnRightAxis += playerAnimation.UpdateRightAnimatorParam;
         movementComponent.OnRotationAxis += playerAnimation.UpdateRotateAnimatorParam;
+        movementComponent.invi += playerAnimation.UpdateInviAnimatorParam;
+        movementComponent.dash += playerAnimation.UpdateDashAnimatorParam;
 
     }
 
