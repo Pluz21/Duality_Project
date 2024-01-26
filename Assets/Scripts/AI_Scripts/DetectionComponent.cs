@@ -32,7 +32,11 @@ public class DetectionComponent : MonoBehaviour
     {
         if (enemyOwner.CheckPlayerIsInvisible())
         {
-            enemyOwner.DropAggroLogic();
+            //enemyOwner.DropAggroLogic();
+            enemyOwner.PatrolComponent.CanPatrol = true;
+            enemyOwner.SetTarget(null);
+            enemyOwner.CanStartMoving = false;
+
 
             Debug.Log("player is invisible, stop detection");
         return;
