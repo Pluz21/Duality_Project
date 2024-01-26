@@ -33,6 +33,18 @@ public class PlayerAnimation : MonoBehaviour
         if (playerAnimator == null) return;
         playerAnimator.SetFloat(AnimationParameter.RotateAxisParam, _value);
     }
+    public void UpdateIsDashingAnimatorParam(bool _value)
+    { 
+        if (playerAnimator == null) return;
+        playerAnimator.SetBool(AnimationParameter.dash, _value);
+    
+    }
+    public void UpdateIsInvisibleAnimatorParam(bool _value)
+    { 
+        if (playerAnimator == null) return;
+        playerAnimator.SetBool(AnimationParameter.invi, _value);
+    
+    }
    
     
 }

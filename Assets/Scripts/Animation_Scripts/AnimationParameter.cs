@@ -8,5 +8,6 @@ public class AnimationParameter
     public static readonly int rightAxisParam = Animator.StringToHash("right");
     public static readonly int RotateAxisParam = Animator.StringToHash("rotation");
     public static readonly int invi = Animator.StringToHash("invi");
+    public static readonly int dash = Animator.StringToHash("dash");
     
 }

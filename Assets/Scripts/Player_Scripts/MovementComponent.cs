@@ -19,6 +19,7 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] float regenDash = 5;
 
     [SerializeField] bool isCrouching = false;
+    [SerializeField] bool isDashing = false;
     [SerializeField] bool isInvisible = false;
 
 
@@ -34,6 +35,7 @@ public class MovementComponent : MonoBehaviour
 
 
     public event Action<bool> dash = null;
+    public event Action<bool> invi = null;
     public event Action OnDash = null;
 
     
@@ -106,18 +108,20 @@ public class MovementComponent : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && numberDash >= 1)
         {
+            Debug.Log("dashing");
             if (isCrouching) return;
             transform.Translate(Vector3.forward * DistDash);
             numberDash--;
+            dash?.Invoke(isDashing = true);
+            OnDash?.Invoke();
         }
 
-            dash?.Invoke(true);
-            OnDash?.Invoke();
-            numberDash--;
+           
         
         
         if (Input.GetKeyUp(KeyCode.Space))
-            dash?.Invoke(false);
+            dash?.Invoke(isDashing = false);
+            
 
     }
 
@@ -154,6 +158,7 @@ public class MovementComponent : MonoBehaviour
 
         if (timerInvi > 0)
         {
+            invi?.Invoke(true);
             isInvisible = true;
             timerInvi -= Time.deltaTime;
         }
@@ -163,6 +168,7 @@ public class MovementComponent : MonoBehaviour
             timerInvi = 0;
             isInvisible = false;
             timerInvi = 6;
+            invi?.Invoke(false);
         }
         
     }
