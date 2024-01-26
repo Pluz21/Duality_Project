@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(InputComponent),typeof(MovementComponent))]
+[RequireComponent(typeof(MovementComponent))]
 public class Player : MonoBehaviour
 {
     [SerializeField] int life = 50;
     [SerializeField] int maxLife = 50;
     MovementComponent movementComponent = null;
     [SerializeField] PlayerAnimation playerAnimation = null;
+    [SerializeField] InputComponent inputComponent = null;
 
-    InputComponent inputComponent = null;
+
 
     public int MaxLife
     {

@@ -20,14 +20,14 @@ public class MovementComponent : MonoBehaviour
 
     [SerializeField] bool isCrouching = false;
     [SerializeField] bool isInvisible = false;
+<<<<<<< Updated upstream:Assets/Scripts/MovementComponent.cs
+=======
+    //[SerializeField] bool isDash = false;
+>>>>>>> Stashed changes:Assets/Scripts/Player_Scripts/MovementComponent.cs
 
     [SerializeField] float timerInvi = 6;
 
-    //Raycast elements
-    [SerializeField] Vector3 worldPosition = Vector3.zero;
-    [SerializeField] LayerMask floorMask = 0;
-    [SerializeField] Ray screenRay = new Ray();
-    [SerializeField] bool detectFloor = false;
+
 
     //event anim
     public event Action<float> OnforwardAxis = null;
@@ -37,7 +37,6 @@ public class MovementComponent : MonoBehaviour
     
 
     //Accessors
-    public Vector3 WorldPosition => worldPosition;
     public bool IsCrouching => isCrouching;
     public bool IsInvisible => isInvisible;
     public int NumberDash => numberDash;
@@ -106,8 +105,17 @@ public class MovementComponent : MonoBehaviour
         {
             if (isCrouching) return;
             transform.Translate(Vector3.forward * DistDash);
+<<<<<<< Updated upstream:Assets/Scripts/MovementComponent.cs
             numberDash--;
         }
+=======
+            dash?.Invoke(true);
+            OnDash?.Invoke();
+            numberDash--;
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+            dash?.Invoke(false);
+>>>>>>> Stashed changes:Assets/Scripts/Player_Scripts/MovementComponent.cs
 
     }
 

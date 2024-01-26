@@ -15,8 +15,8 @@ public class DetectionComponent : MonoBehaviour
     // Raycast variables
     [SerializeField] RaycastHit hitPlayer;
     [SerializeField] GameObject rayCenterStart = null;
-    [SerializeField] GameObject rayRightStart = null;
-    [SerializeField] GameObject rayLeftStart = null;
+    //[SerializeField] GameObject rayRightStart = null;
+    //[SerializeField] GameObject  rayLeftStart = null;
     [SerializeField] Ray centerRay;
     [SerializeField] Ray rightRay;
     [SerializeField] Ray leftRay;
