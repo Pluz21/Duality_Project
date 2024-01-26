@@ -2,15 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using System;
+using UnityEngine.Playables;
 
+public enum DayState 
+{
+    DAY,
+    NIGHT
+}
 public class DayNight : MonoBehaviour
 {
+    public event Action OnTimeElapsed;
     [SerializeField] float speedSun = 10f;
     [SerializeField] Light sun = null;
+    [SerializeField] float currentTime = 0;
+    [SerializeField] float maxTime = 9.2f;
+    [SerializeField] DayState dayState;
     // Start is called before the first frame update
     void Start()
     {
-        sun = GetComponent<Light>();
+        Init();
+    }
+
+    void Init()
+    {
+        dayState = DayState.DAY;
+        //maxTime = speedSun/2 - 0.8f;
+        speedSun = 180 /maxTime;
+        OnTimeElapsed += SetDayNightState;
+    }
+
+    private void SetDayNightState()
+    {
+        if (dayState == DayState.DAY)
+        {
+            dayState = DayState.NIGHT;
+            Debug.Log($"It is now {dayState}");
+        }
+        else { dayState = DayState.DAY; }
+
+        //if (dayState == DayState.NIGHT)
+        //{ 
+        //    dayState = DayState.DAY;
+        //    Debug.Log($"It is now {dayState}");
+            
+        //}
     }
 
     // Update is called once per frame
@@ -18,6 +54,7 @@ public class DayNight : MonoBehaviour
     {
         TimeSun();
         sun.transform.Rotate(Vector3.right * speedSun * Time.deltaTime);
+        currentTime = IncreaseTime(currentTime,maxTime);
     }
     public void TimeSun()
     {
@@ -28,6 +65,20 @@ public class DayNight : MonoBehaviour
            //Debug.Log("night");
       //  sun.transform.rotation.x
         
+    }
+
+    float IncreaseTime(float _current, float _max) 
+    { 
+        _current += Time.deltaTime;
+        if (_current > _max)
+        { 
+            _current = 0;
+            OnTimeElapsed?.Invoke();
+            return _current;
+
+        }
+        return _current;
+
     }
 
 }

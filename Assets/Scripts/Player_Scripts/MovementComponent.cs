@@ -18,9 +18,11 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] int numberDash = 3;
     [SerializeField] float regenDash = 5;
 
+
     [SerializeField] bool isCrouching = false;
     [SerializeField] bool isDashing = false;
     [SerializeField] bool isInvisible = false;
+    [SerializeField] bool canBecomeInvisible = false;
 
 
     [SerializeField] float timerInvi = 6;

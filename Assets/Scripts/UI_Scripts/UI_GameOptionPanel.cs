@@ -12,6 +12,8 @@ public class UI_GameOptionPanel : MonoBehaviour
 
     [SerializeField] TMP_Dropdown gameOptionDropdown = null;
     [SerializeField] AudioSource soundSource = null;
+    [SerializeField] int difficultyScaling = 1;
+    [SerializeField] int baseDifficulty = 1;
 
     //Manager
     [SerializeField] EnemyManager enemyManager = null;
@@ -38,7 +40,7 @@ public class UI_GameOptionPanel : MonoBehaviour
         Debug.Log($"current amount of ennemies {_size}");
         for (int i = 0; i < _size; i++)
         {
-            enemyManager.AllEnemies[i].Damage = _index + 1 * 1;
+            enemyManager.AllEnemies[i].Damage = _index + baseDifficulty * difficultyScaling;
         }
         Debug.Log($"Now selected {_index}");
 
