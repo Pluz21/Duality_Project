@@ -156,45 +156,6 @@ public partial class @MyInputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
-        },
-        {
-            ""name"": ""GameMenu"",
-            ""id"": ""b4c1c2c6-b5f4-4b01-a693-dc24653edde7"",
-            ""actions"": [
-                {
-                    ""name"": ""OpenMenu"",
-                    ""type"": ""Button"",
-                    ""id"": ""c8432c66-a745-48a1-9269-95c86709b5b8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""a54ea23f-e1ec-42a5-aedf-96a936f1a10f"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""OpenMenu"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3fa8f1bf-2341-4e4b-a94a-7799a5de6842"",
-                    ""path"": ""<Keyboard>/enter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""OpenMenu"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
         }
     ],
     ""controlSchemes"": [
@@ -265,9 +226,6 @@ public partial class @MyInputs: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_LeftClickMove = m_Player.FindAction("LeftClickMove", throwIfNotFound: true);
         m_Player_camRot = m_Player.FindAction("camRot", throwIfNotFound: true);
-        // GameMenu
-        m_GameMenu = asset.FindActionMap("GameMenu", throwIfNotFound: true);
-        m_GameMenu_OpenMenu = m_GameMenu.FindAction("OpenMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -387,52 +345,6 @@ public partial class @MyInputs: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
-
-    // GameMenu
-    private readonly InputActionMap m_GameMenu;
-    private List<IGameMenuActions> m_GameMenuActionsCallbackInterfaces = new List<IGameMenuActions>();
-    private readonly InputAction m_GameMenu_OpenMenu;
-    public struct GameMenuActions
-    {
-        private @MyInputs m_Wrapper;
-        public GameMenuActions(@MyInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @OpenMenu => m_Wrapper.m_GameMenu_OpenMenu;
-        public InputActionMap Get() { return m_Wrapper.m_GameMenu; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(GameMenuActions set) { return set.Get(); }
-        public void AddCallbacks(IGameMenuActions instance)
-        {
-            if (instance == null || m_Wrapper.m_GameMenuActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_GameMenuActionsCallbackInterfaces.Add(instance);
-            @OpenMenu.started += instance.OnOpenMenu;
-            @OpenMenu.performed += instance.OnOpenMenu;
-            @OpenMenu.canceled += instance.OnOpenMenu;
-        }
-
-        private void UnregisterCallbacks(IGameMenuActions instance)
-        {
-            @OpenMenu.started -= instance.OnOpenMenu;
-            @OpenMenu.performed -= instance.OnOpenMenu;
-            @OpenMenu.canceled -= instance.OnOpenMenu;
-        }
-
-        public void RemoveCallbacks(IGameMenuActions instance)
-        {
-            if (m_Wrapper.m_GameMenuActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IGameMenuActions instance)
-        {
-            foreach (var item in m_Wrapper.m_GameMenuActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_GameMenuActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public GameMenuActions @GameMenu => new GameMenuActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -483,9 +395,5 @@ public partial class @MyInputs: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLeftClickMove(InputAction.CallbackContext context);
         void OnCamRot(InputAction.CallbackContext context);
-    }
-    public interface IGameMenuActions
-    {
-        void OnOpenMenu(InputAction.CallbackContext context);
     }
 }

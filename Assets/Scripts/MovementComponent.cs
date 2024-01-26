@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class MovementComponent : MonoBehaviour
 {
+    // Events
+    public Action OnDash;
     private InputComponent input = null;
     [SerializeField] Player playerRef = null;
 
@@ -17,26 +19,31 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] float DistDash = 5;
     [SerializeField] int numberDash = 3;
     [SerializeField] float regenDash = 5;
+    
 
     [SerializeField] bool isCrouching = false;
     [SerializeField] bool isInvisible = false;
-<<<<<<< Updated upstream:Assets/Scripts/MovementComponent.cs
-=======
-    //[SerializeField] bool isDash = false;
->>>>>>> Stashed changes:Assets/Scripts/Player_Scripts/MovementComponent.cs
+    [SerializeField] bool isDash = false;
 
     [SerializeField] float timerInvi = 6;
 
-
+    //Raycast elements
+    [SerializeField] Vector3 worldPosition = Vector3.zero;
+    [SerializeField] LayerMask floorMask = 0;
+    [SerializeField] Ray screenRay = new Ray();
+    [SerializeField] bool detectFloor = false;
 
     //event anim
     public event Action<float> OnforwardAxis = null;
     public event Action<float> OnRightAxis = null;
     public event Action<float> OnRotationAxis = null;
+    public event Action<bool> invi = null;
+    public event Action<bool> dash = null;
 
-    
+
 
     //Accessors
+    public Vector3 WorldPosition => worldPosition;
     public bool IsCrouching => isCrouching;
     public bool IsInvisible => isInvisible;
     public int NumberDash => numberDash;
@@ -61,7 +68,7 @@ public class MovementComponent : MonoBehaviour
     void Init()
     {
         input = GetComponent<InputComponent>();
-       
+        
     }
 
     // Update is called once per frame
@@ -75,8 +82,6 @@ public class MovementComponent : MonoBehaviour
         Timedash();
         if (isInvisible)
             TimeInvi();
-
-       
     }
 
 
@@ -103,19 +108,14 @@ public class MovementComponent : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && numberDash >= 1)
         {
-            if (isCrouching) return;
+            if (isCrouching || isInvisible) return;
             transform.Translate(Vector3.forward * DistDash);
-<<<<<<< Updated upstream:Assets/Scripts/MovementComponent.cs
-            numberDash--;
-        }
-=======
-            dash?.Invoke(true);
+            dash?.Invoke(isDash = true);
             OnDash?.Invoke();
             numberDash--;
         }
         if (Input.GetKeyUp(KeyCode.Space))
-            dash?.Invoke(false);
->>>>>>> Stashed changes:Assets/Scripts/Player_Scripts/MovementComponent.cs
+            dash?.Invoke(isDash = false);
 
     }
 
@@ -144,7 +144,7 @@ public class MovementComponent : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
            TimeInvi();
-          
+           
         }
     }
     public void TimeInvi()
@@ -153,6 +153,7 @@ public class MovementComponent : MonoBehaviour
         if (timerInvi > 0)
         {
             isInvisible = true;
+            invi?.Invoke(isInvisible = true);
             timerInvi -= Time.deltaTime;
         }
         else
@@ -160,6 +161,7 @@ public class MovementComponent : MonoBehaviour
            
             timerInvi = 0;
             isInvisible = false;
+            invi?.Invoke(isInvisible = false);
             timerInvi = 6;
         }
         

@@ -12,8 +12,8 @@ public class EnemyPatrolComponent : MonoBehaviour
     [SerializeField] List<Vector3> allPoints = new List<Vector3>();
     [SerializeField] int pathIndex = 0;
     [SerializeField] bool canPatrol = true;
-    //[SerializeField] float patrolSpeed = 5;
-    //[SerializeField] float patrolRotateSpeed = 5;
+    [SerializeField] float patrolSpeed = 5;
+    [SerializeField] float patrolRotateSpeed = 5;
     [SerializeField] float minDistanceAllowedtoPathPoint = 0.5f;
 
     [SerializeField] Enemy enemy = null;
