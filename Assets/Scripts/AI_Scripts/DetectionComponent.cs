@@ -30,10 +30,19 @@ public class DetectionComponent : MonoBehaviour
 
     void Update()
     {
+        if (enemyOwner.CheckPlayerIsInvisible())
+        {
+            enemyOwner.DropAggroLogic();
 
+            Debug.Log("player is invisible, stop detection");
+        return;
+        }
+        if (!enemyOwner.CheckPlayerIsInvisible())
+        { 
         DetectInRange();
         if (target)
             DetectTargetNoMoreInRange(target);
+        }
     }
     void Start()
     {
@@ -68,6 +77,7 @@ public class DetectionComponent : MonoBehaviour
 
     void DetectInRange()
     {
+
         List<Ray> _rays = new List<Ray>();
 
         for (int i = 0; i < amountOfRays; i++)

@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour
 
     void Init()
     {
+        
         OnInRangeToPlayer += IsInRangeToPlayerLogic;
         InvokeRepeating(nameof(AttackPlayer), 0, attackSpeed);
 
@@ -70,8 +71,13 @@ public class Enemy : MonoBehaviour
 
     void EnemyLogic()
     {
-
+        
         if (patrolComponent.CanPatrol) return;
+        if (CheckPlayerIsInvisible())
+        {
+            DropAggroLogic();
+            return;
+        }
         CheckDistanceToInitialPos();
         CheckDistanceToPlayer();
         if (canStartMoving && target)
@@ -82,6 +88,13 @@ public class Enemy : MonoBehaviour
             canReturnToInitialPos = true;
         if (canReturnToInitialPos)
             MoveTo(initialPos);
+    }
+
+    public void DropAggroLogic()
+    {
+        canStartMoving = false;
+        canReturnToInitialPos = true;
+        isInRangeToPlayer = false;
     }
 
     public void SetTarget(GameObject _target)
@@ -160,6 +173,18 @@ public class Enemy : MonoBehaviour
 
     }
 
+    public bool CheckPlayerIsInvisible()
+    {
+        if (target && target.GetComponent<Player>())
+        {
+            Player _target = target.GetComponent<Player>();
+            bool _isInvi = _target.GetComponent<MovementComponent>().IsInvisible;
+            if (_isInvi)
+                return true;
+
+        }
+        return false;
+    }
 
     void AttackPlayer()
     {
