@@ -13,11 +13,15 @@ public enum DayState
 public class DayNight : MonoBehaviour
 {
     public event Action OnTimeElapsed;
+    public Action OnDayStarted;
+    public Action OnNightStarted;
     [SerializeField] float speedSun = 10f;
     [SerializeField] Light sun = null;
     [SerializeField] float currentTime = 0;
     [SerializeField] float maxTime = 9.2f;
     [SerializeField] DayState dayState;
+
+    public DayState DayStateRef => dayState;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,10 +40,15 @@ public class DayNight : MonoBehaviour
     {
         if (dayState == DayState.DAY)
         {
+            OnNightStarted?.Invoke();
             dayState = DayState.NIGHT;
             Debug.Log($"It is now {dayState}");
         }
-        else { dayState = DayState.DAY; }
+        else
+        {
+            OnDayStarted?.Invoke();
+            dayState = DayState.DAY;
+        }
 
         //if (dayState == DayState.NIGHT)
         //{ 
