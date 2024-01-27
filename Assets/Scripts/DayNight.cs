@@ -19,6 +19,7 @@ public struct AmbientColors
     {
         skyColor = _skyColor; equatorColor = _equatorColor;
     }
+    
 }
 public class DayNight : MonoBehaviour
 {
@@ -45,13 +46,12 @@ public class DayNight : MonoBehaviour
 
     void Init()
     {
+        InitEvents();
+
         InitLightEnvironmentColorSettings();
         dayState = DayState.DAY;
-        //maxTime = speedSun/2 - 0.8f;
         speedSun = 180 /maxTime;       // Scaling the sunSpeed to the maxTime (one day or one night is 180 degrees)
-        OnTimeElapsed += SetDayNightState;
-        //RenderSettings.ambientSkyColor = Color.blue;
-        //RenderSettings.ambientEquatorColor= Color.blue;
+ 
     }
 
     void InitLightEnvironmentColorSettings()
@@ -59,6 +59,26 @@ public class DayNight : MonoBehaviour
         dayColors.UpdateAmbientColors(RenderSettings.ambientSkyColor, RenderSettings.ambientEquatorColor);
         nightColors.UpdateAmbientColors(customAmbientSkyColor, customAmbientEquatorColor);
         
+    }
+
+    
+    void InitEvents()
+    {
+        OnTimeElapsed += SetDayNightState;
+        OnNightStarted += SetNightAmbientColors;
+        OnDayStarted += SetDayAmbientColors;
+
+    }
+
+    private void SetNightAmbientColors()
+    {
+        RenderSettings.ambientSkyColor = nightColors.skyColor;
+        RenderSettings.ambientEquatorColor = nightColors.equatorColor;
+    }
+    private void SetDayAmbientColors()
+    {
+        RenderSettings.ambientSkyColor = dayColors.skyColor;
+        RenderSettings.ambientEquatorColor = dayColors.equatorColor;
     }
 
     private void SetDayNightState()
