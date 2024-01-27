@@ -205,7 +205,6 @@ GameObject:
   - component: {fileID: 946474422749698109}
   - component: {fileID: 2834475732589946453}
   - component: {fileID: 2606790090981500302}
-  - component: {fileID: 1053427060179090196}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -340,23 +339,6 @@ MonoBehaviour:
   maxLife: 50
   playerAnimation: {fileID: 946474422749698109}
   inputComponent: {fileID: 2726459882773407324}
---- !u!114 &1053427060179090196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 689495269912866186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84ce9ff43ca4850478f723d88c49191e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPitch: 1
-  randomFloatMin: 0.5
-  randomFloatMax: 1.2
-  playerMoveCompoRef: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!1 &852332392827777063
 GameObject:
   m_ObjectHideFlags: 0
