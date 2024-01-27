@@ -17,6 +17,7 @@ public class UIplay : MonoBehaviour
     //Dash Variables
     [SerializeField] Image dashIcon = null;
     [SerializeField] Color dashUsedIconColor = new Color();
+    [SerializeField] Color noMoreDashesAvailableColor = new Color();
     Color dashInitialIconColor = new Color();
 
     //Invisibility Variables
@@ -64,8 +65,34 @@ public class UIplay : MonoBehaviour
 
         UITime += TimerDash;
         UITime?.Invoke(refplayer.RegenDash);
+        //dash checker
+        if (CheckPlayerDashesQuantity())
+        {
+            UpdateAllDashesUsedIconColor();
+        }
+        else
+        {
+            ResetDashIconColor();
+        }
+
+
+
     }
 
+    private bool CheckPlayerDashesQuantity()
+    {
+        if (refplayer.NumberDash < 1)
+        {
+            return true;
+            //            UpdateAllDashesUsedIconColor();
+
+        }
+        else
+        {
+            return false;
+            //ResetDashIconColor();
+        }
+    }
     private void UpdateInvisibilityIconColor()
     {
         invisibilityIcon.canvasRenderer.SetColor(invisibilityIconColor);
@@ -93,6 +120,10 @@ public class UIplay : MonoBehaviour
     public void UpdateDashUsedIconColor()
     {
         dashIcon.canvasRenderer.SetColor(dashUsedIconColor);
+    }
+    public void UpdateAllDashesUsedIconColor()
+    {
+        dashIcon.canvasRenderer.SetColor(noMoreDashesAvailableColor);
     }
     public void TimerDash(float _value)
     {

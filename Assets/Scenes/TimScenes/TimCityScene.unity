@@ -323,6 +323,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &273203897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197717195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ce9ff43ca4850478f723d88c49191e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPitch: 1
+  randomFloatMin: 0.5
+  randomFloatMax: 1.2
+  playerMoveCompoRef: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1001 &472820476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -452,6 +469,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+--- !u!114 &642790947 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9161937293014504159, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
+  m_PrefabInstance: {fileID: 1907559540}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &651848833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -726,6 +754,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 689495269912866186, guid: 419d7aef3cd01434d9e9deebb18094e5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 273203892}
+    - targetCorrespondingSourceObject: {fileID: 689495269912866186, guid: 419d7aef3cd01434d9e9deebb18094e5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 273203897}
   m_SourcePrefab: {fileID: 100100000, guid: 419d7aef3cd01434d9e9deebb18094e5, type: 3}
 --- !u!1001 &1907559540
 PrefabInstance:
@@ -799,6 +830,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5566180840378380884, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 66e046a54ed691b47bb6a5610e4c6c7d, type: 3}
     - target: {fileID: 6202961549850483146, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -943,6 +978,42 @@ PrefabInstance:
       propertyPath: refLifeplayer
       value: 
       objectReference: {fileID: 273203881}
+    - target: {fileID: 8930954589559015271, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
+      propertyPath: invisibilityIcon
+      value: 
+      objectReference: {fileID: 642790947}
+    - target: {fileID: 8930954589559015271, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
+      propertyPath: invisibilityIconColor.a
+      value: 0.25490198
+      objectReference: {fileID: 0}
+    - target: {fileID: 8930954589559015271, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
+      propertyPath: invisibilityIconColor.b
+      value: 0.3886792
+      objectReference: {fileID: 0}
+    - target: {fileID: 8930954589559015271, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
+      propertyPath: invisibilityIconColor.g
+      value: 0.3886792
+      objectReference: {fileID: 0}
+    - target: {fileID: 8930954589559015271, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
+      propertyPath: invisibilityIconColor.r
+      value: 0.3886792
+      objectReference: {fileID: 0}
+    - target: {fileID: 8930954589559015271, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
+      propertyPath: noMoreDashesAvailableColor.a
+      value: 0.12941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 8930954589559015271, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
+      propertyPath: noMoreDashesAvailableColor.b
+      value: 0.3886792
+      objectReference: {fileID: 0}
+    - target: {fileID: 8930954589559015271, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
+      propertyPath: noMoreDashesAvailableColor.g
+      value: 0.3886792
+      objectReference: {fileID: 0}
+    - target: {fileID: 8930954589559015271, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
+      propertyPath: noMoreDashesAvailableColor.r
+      value: 0.3886792
+      objectReference: {fileID: 0}
     - target: {fileID: 8951834461646953855, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
