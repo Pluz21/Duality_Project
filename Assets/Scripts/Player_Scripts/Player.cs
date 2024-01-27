@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] PlayerAnimation playerAnimation = null;
     [SerializeField] InputComponent inputComponent = null;
 
-
+    public MovementComponent MoveCompoRef => movementComponent;
 
     public int MaxLife
     {

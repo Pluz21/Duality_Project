@@ -10,6 +10,28 @@ public enum DayState
     DAY,
     NIGHT
 }
+
+[Serializable]
+public struct AmbientColors
+{
+    public Color skyColor; public Color equatorColor; public float ambientIntensity;
+    public void SetAmbientColors(Color _skyColor, Color _equatorColor)
+    {
+        skyColor = _skyColor; equatorColor = _equatorColor;
+    }
+    public void UpdateAmbientColors(Color _skyColor, Color _equatorColor)
+    {
+        RenderSettings.ambientSkyColor = _skyColor;
+        RenderSettings.ambientEquatorColor = _equatorColor;
+    }
+
+    public void UpdateAmbientIntensity(float _intensity)
+    {
+        RenderSettings.reflectionIntensity = _intensity;
+        Debug.Log("Called Test function in struct");
+    }
+    
+}
 public class DayNight : MonoBehaviour
 {
     public event Action OnTimeElapsed;
@@ -21,6 +43,16 @@ public class DayNight : MonoBehaviour
     [SerializeField] float maxTime = 9.2f;
     [SerializeField] DayState dayState;
 
+    //Colors for day and night shifting
+    //struct settings
+    AmbientColors dayColors = new AmbientColors();
+    AmbientColors nightColors = new AmbientColors();
+
+    //
+    [SerializeField] Color nightAmbientSkyColor = new Color();
+    [SerializeField] Color nightAmbientEquatorColor = new Color();
+    [SerializeField,Range(0.1f,0.8f)] float customNightIntensity = 0.4f;
+    [SerializeField] float customDayIntensity = 1f;
     public DayState DayStateRef => dayState;
     // Start is called before the first frame update
     void Start()
@@ -30,10 +62,39 @@ public class DayNight : MonoBehaviour
 
     void Init()
     {
+        InitEvents();
+
+        InitLightEnvironmentColorSettings();
         dayState = DayState.DAY;
-        //maxTime = speedSun/2 - 0.8f;
         speedSun = 180 /maxTime;       // Scaling the sunSpeed to the maxTime (one day or one night is 180 degrees)
+ 
+    }
+
+    void InitLightEnvironmentColorSettings()
+    {
+        dayColors.SetAmbientColors(RenderSettings.ambientSkyColor, RenderSettings.ambientEquatorColor);
+        nightColors.SetAmbientColors(nightAmbientSkyColor, nightAmbientEquatorColor);
+
+    }
+
+    
+    void InitEvents()
+    {
         OnTimeElapsed += SetDayNightState;
+        OnNightStarted += SetNightAmbientColors;
+        OnDayStarted += SetDayAmbientColors;
+
+    }
+
+    private void SetNightAmbientColors()
+    {
+        nightColors.UpdateAmbientColors(nightColors.skyColor, nightColors.equatorColor);
+        nightColors.UpdateAmbientIntensity(customNightIntensity);
+    }
+    private void SetDayAmbientColors()
+    {
+        dayColors.UpdateAmbientColors(dayColors.skyColor, dayColors.equatorColor);
+        nightColors.UpdateAmbientIntensity(customDayIntensity);
     }
 
     private void SetDayNightState()
@@ -49,31 +110,12 @@ public class DayNight : MonoBehaviour
             OnDayStarted?.Invoke();
             dayState = DayState.DAY;
         }
-
-        //if (dayState == DayState.NIGHT)
-        //{ 
-        //    dayState = DayState.DAY;
-        //    Debug.Log($"It is now {dayState}");
-            
-        //}
     }
-
-    // Update is called once per frame
     void Update()
     {
-        TimeSun();
+       
         sun.transform.Rotate(Vector3.right * speedSun * Time.deltaTime);
         currentTime = IncreaseTime(currentTime,maxTime);
-    }
-    public void TimeSun()
-    {
-       // Debug.Log(sun.transform.localRotation.x);
-        //Debug.Log(sun.transform.localRotation.x);
-        //if (sun.transform.rotation.x >- 0.1 || sun.transform.rotation.x > 0.96)
-        //if (sun.transform.localRotation.x > -0.1 || sun.transform.localRotation.x > 0.96)
-           //Debug.Log("night");
-      //  sun.transform.rotation.x
-        
     }
 
     float IncreaseTime(float _current, float _max) 

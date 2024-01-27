@@ -41,8 +41,11 @@ public class MovementComponent : MonoBehaviour
 
     public event Action<bool> dash = null;
     public event Action<bool> invi = null;
-    public event Action OnDash = null;
+    public  Action OnInvisibilityStarted = null;
+    public  Action OnDash = null;
+    public event Action OnLastDashUsed = null;
     public event Action OnDashFinished = null;
+    public event Action OnDashSoundPlayed = null;
 
     //Audio
     [SerializeField] AudioSource soundSource = null;
@@ -51,7 +54,12 @@ public class MovementComponent : MonoBehaviour
     //Accessors
     public bool IsCrouching => isCrouching;
     public bool IsInvisible => isInvisible;
-    public int NumberDash => numberDash;
+    public int NumberDash
+    {
+        get { return numberDash; }
+        set { numberDash = value; }
+    }
+
     public float RegenDash
     {
         get { return regenDash; }
@@ -82,6 +90,7 @@ public class MovementComponent : MonoBehaviour
     {
         dayNight.OnNightStarted += EnableInvisibility;
         dayNight.OnDayStarted += DisableInvisibility;
+        OnDash += () => { PlaySound(soundSource); };
 
     }
     void Update()
@@ -123,13 +132,21 @@ public class MovementComponent : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && numberDash >= 1 && !isDashing)
         {
-            Debug.Log("dashing");
             if (isCrouching) return;
             transform.Translate(Vector3.forward * DistDash);
             numberDash--;
             dash?.Invoke(isDashing = true);
             OnDash?.Invoke();
+            if (numberDash == 1)
+            {
+                OnLastDashUsed?.Invoke();
+                Debug.Log("Last dash used");
+
+            }
+
         }
+     
+
 
         if (Input.GetKeyUp(KeyCode.Space))
         { 
@@ -165,7 +182,8 @@ public class MovementComponent : MonoBehaviour
         {
            if (canBecomeInvisible)
            TimeInvi();
-          
+
+
         }
     }
     public void TimeInvi()
@@ -175,7 +193,9 @@ public class MovementComponent : MonoBehaviour
         {
             invi?.Invoke(true);
             isInvisible = true;
-            timerInvi -= Time.deltaTime;
+            timerInvi -= Time.deltaTime; 
+            OnInvisibilityStarted?.Invoke();
+
         }
         else
         {
