@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!82 &179671339 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1507662993731997197, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
-  m_PrefabInstance: {fileID: 1907559540}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &190330841
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,12 +195,17 @@ Transform:
   - {fileID: 1735594109}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &197717195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 689495269912866186, guid: 419d7aef3cd01434d9e9deebb18094e5, type: 3}
+  m_PrefabInstance: {fileID: 1768256412}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &273203881 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2606790090981500302, guid: 419d7aef3cd01434d9e9deebb18094e5, type: 3}
   m_PrefabInstance: {fileID: 1768256412}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 197717195}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d83823df3d5ff7345ab11c24060fde21, type: 3}
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2834475732589946453, guid: 419d7aef3cd01434d9e9deebb18094e5, type: 3}
   m_PrefabInstance: {fileID: 1768256412}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 197717195}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55b5ef3e1399adb4d8b1046fcd90aa8f, type: 3}
@@ -227,6 +227,102 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2121417657388416842, guid: 419d7aef3cd01434d9e9deebb18094e5, type: 3}
   m_PrefabInstance: {fileID: 1768256412}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &273203892
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197717195}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 840f4738cd0030e4e8e2383260536788, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.098
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &472820476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -244,6 +340,22 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: nightAmbientSkyColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: nightAmbientSkyColor.b
+      value: 0.19245279
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: nightAmbientSkyColor.g
+      value: 0.064998195
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: nightAmbientSkyColor.r
+      value: 0.12752311
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
       propertyPath: customAmbientSkyColor.a
       value: 1
       objectReference: {fileID: 0}
@@ -258,6 +370,22 @@ PrefabInstance:
     - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
       propertyPath: customAmbientSkyColor.r
       value: 0.17154501
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: nightAmbientEquatorColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: nightAmbientEquatorColor.b
+      value: 0.3660378
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: nightAmbientEquatorColor.g
+      value: 0.15677467
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: nightAmbientEquatorColor.r
+      value: 0.25993252
       objectReference: {fileID: 0}
     - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
       propertyPath: customAmbientEquatorColor.a
@@ -590,11 +718,14 @@ PrefabInstance:
     - target: {fileID: 2834475732589946453, guid: 419d7aef3cd01434d9e9deebb18094e5, type: 3}
       propertyPath: soundSource
       value: 
-      objectReference: {fileID: 179671339}
+      objectReference: {fileID: 273203892}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 689495269912866186, guid: 419d7aef3cd01434d9e9deebb18094e5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 273203892}
   m_SourcePrefab: {fileID: 100100000, guid: 419d7aef3cd01434d9e9deebb18094e5, type: 3}
 --- !u!1001 &1907559540
 PrefabInstance:

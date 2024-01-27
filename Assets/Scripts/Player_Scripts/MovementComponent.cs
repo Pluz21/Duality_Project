@@ -41,8 +41,9 @@ public class MovementComponent : MonoBehaviour
 
     public event Action<bool> dash = null;
     public event Action<bool> invi = null;
-    public event Action OnDash = null;
+    public  Action OnDash = null;
     public event Action OnDashFinished = null;
+    public event Action OnDashSoundPlayed = null;
 
     //Audio
     [SerializeField] AudioSource soundSource = null;
@@ -82,6 +83,7 @@ public class MovementComponent : MonoBehaviour
     {
         dayNight.OnNightStarted += EnableInvisibility;
         dayNight.OnDayStarted += DisableInvisibility;
+        OnDash += () => { PlaySound(soundSource); };
 
     }
     void Update()
