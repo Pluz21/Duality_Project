@@ -243,7 +243,7 @@ MonoBehaviour:
   randomFloatMin: 0.5
   randomFloatMax: 1.2
   playerMoveCompoRef: {fileID: 0}
-  audioSource: {fileID: 844435475}
+  allAudioSource: []
 --- !u!1001 &472820476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -441,6 +441,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0da968193894e2843a214aa574abe90e, type: 3}
+--- !u!82 &809101527 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 225586203069624379, guid: e223929fa77c550418a70e0e42910569, type: 3}
+  m_PrefabInstance: {fileID: 1569059914}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &844435475 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 1410052887586967084, guid: e223929fa77c550418a70e0e42910569, type: 3}
@@ -522,6 +527,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 225586203069624379, guid: e223929fa77c550418a70e0e42910569, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2a41920aca15e8f4daa13cc93bdd0fad, type: 3}
     - target: {fileID: 1938893617553130597, guid: e223929fa77c550418a70e0e42910569, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1132.8638
@@ -725,6 +734,10 @@ PrefabInstance:
       propertyPath: dashSoundSource
       value: 
       objectReference: {fileID: 844435475}
+    - target: {fileID: 2834475732589946453, guid: 419d7aef3cd01434d9e9deebb18094e5, type: 3}
+      propertyPath: invisbilityStartedSoundSource
+      value: 
+      objectReference: {fileID: 809101527}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -741,6 +754,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 721121725345698259, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
+      propertyPath: difficultyScaling
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1408119612934266158, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
