@@ -45,12 +45,12 @@ public class DayNight : MonoBehaviour
 
     //Colors for day and night shifting
     //struct settings
-    [SerializeField] AmbientColors dayColors = new AmbientColors();
-    [SerializeField] AmbientColors nightColors = new AmbientColors();
+    AmbientColors dayColors = new AmbientColors();
+    AmbientColors nightColors = new AmbientColors();
 
     //
-    [SerializeField] Color customAmbientSkyColor = new Color();
-    [SerializeField] Color customAmbientEquatorColor = new Color();
+    [SerializeField] Color nightAmbientSkyColor = new Color();
+    [SerializeField] Color nightAmbientEquatorColor = new Color();
     [SerializeField,Range(0.1f,0.8f)] float customNightIntensity = 0.4f;
     [SerializeField] float customDayIntensity = 1f;
     public DayState DayStateRef => dayState;
@@ -73,7 +73,7 @@ public class DayNight : MonoBehaviour
     void InitLightEnvironmentColorSettings()
     {
         dayColors.SetAmbientColors(RenderSettings.ambientSkyColor, RenderSettings.ambientEquatorColor);
-        nightColors.SetAmbientColors(customAmbientSkyColor, customAmbientEquatorColor);
+        nightColors.SetAmbientColors(nightAmbientSkyColor, nightAmbientEquatorColor);
 
     }
 
