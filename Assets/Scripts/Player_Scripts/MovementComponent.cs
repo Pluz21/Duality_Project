@@ -48,9 +48,14 @@ public class MovementComponent : MonoBehaviour
     public event Action OnDashSoundPlayed = null;
 
     //Audio
-    [SerializeField] AudioSource dashSoundSource = null;
-    [SerializeField] AudioSource invisbilityStartedSoundSource = null;
+    //[SerializeField] AudioSource dashSoundSource = null;
+   // [SerializeField] AudioSource invisbilityStartedSoundSource = null;
     //[SerializeField] AudioClip dashSound = null;
+    // sound test paul 
+    [SerializeField] AudioClip dashSound =null;
+    [SerializeField] AudioSource audioSound =null;
+    [SerializeField] AudioClip inviSound =null;
+    //
 
     //Accessors
     public bool IsCrouching => isCrouching;
@@ -76,6 +81,9 @@ public class MovementComponent : MonoBehaviour
 
     void Start()
     {
+        //test sound
+        audioSound = GetComponent<AudioSource>();
+        //
         Init();
     }
 
@@ -91,8 +99,9 @@ public class MovementComponent : MonoBehaviour
     {
         dayNight.OnNightStarted += EnableInvisibility;
         dayNight.OnDayStarted += DisableInvisibility;
-        OnDash += () => { PlaySound(dashSoundSource); };
-        OnInvisibilityStarted += () => { PlaySound(invisbilityStartedSoundSource); };
+        //test sound paul
+        //OnDash += () => { PlaySound(dashSoundSource); };
+       // OnInvisibilityStarted += () => { PlaySound(invisbilityStartedSoundSource); };
 
     }
     void Update()
@@ -134,11 +143,15 @@ public class MovementComponent : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && numberDash >= 1 && !isDashing)
         {
-            if (isCrouching) return;
+            if (isCrouching || isInvisible) return;
             transform.Translate(Vector3.forward * DistDash);
             numberDash--;
             dash?.Invoke(isDashing = true);
             OnDash?.Invoke();
+            // test sound paul
+            audioSound.clip = dashSound;
+            audioSound.Play();
+            //
             if (numberDash == 1)
             {
                 OnLastDashUsed?.Invoke();
@@ -186,6 +199,10 @@ public class MovementComponent : MonoBehaviour
             {
                 TimeInvi();
                 OnInvisibilityStarted?.Invoke();
+                //test sound paul
+                audioSound.clip = inviSound;
+                audioSound.Play();
+                //
             }
 
         }
