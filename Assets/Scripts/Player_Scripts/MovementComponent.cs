@@ -41,6 +41,7 @@ public class MovementComponent : MonoBehaviour
 
     public event Action<bool> dash = null;
     public event Action<bool> invi = null;
+    public  Action OnInvisibilityStarted = null;
     public  Action OnDash = null;
     public event Action OnDashFinished = null;
     public event Action OnDashSoundPlayed = null;
@@ -167,7 +168,8 @@ public class MovementComponent : MonoBehaviour
         {
            if (canBecomeInvisible)
            TimeInvi();
-          
+
+
         }
     }
     public void TimeInvi()
@@ -177,7 +179,9 @@ public class MovementComponent : MonoBehaviour
         {
             invi?.Invoke(true);
             isInvisible = true;
-            timerInvi -= Time.deltaTime;
+            timerInvi -= Time.deltaTime; 
+            OnInvisibilityStarted?.Invoke();
+
         }
         else
         {

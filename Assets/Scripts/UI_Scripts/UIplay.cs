@@ -7,20 +7,34 @@ using UnityEngine.UI;
 
 public class UIplay : MonoBehaviour
 {
+    [SerializeField] MovementComponent refplayer = null;
+   
+    //Texts Values
     [SerializeField] TextMeshProUGUI dashTime = null;
     [SerializeField] TextMeshProUGUI dashNumber = null;
     [SerializeField] TextMeshProUGUI inviTimer = null;
+
+    //Dash Variables
     [SerializeField] Image dashIcon = null;
     [SerializeField] Color dashUsedIconColor = new Color();
     Color dashInitialIconColor = new Color();
+
+    //Invisibility Variables
+    [SerializeField] Image invisibilityIcon = null;
+    [SerializeField] Color invisibilityIconColor = new Color();
+    Color invisibilityIconInitialColor = new Color();
+
+
+    //Life Variables 
     [SerializeField] Slider sliderLife = null;
+    [SerializeField] Player refLifeplayer = null;
+
+    //Events 
     public event Action<float> UINumbreDash = null;
     public event Action<float> UITime = null;
     public event Action<float> UITimeInvi = null;
     public event Action<float, float> UILifeSlider = null;
-    [SerializeField] MovementComponent refplayer = null;
-    [SerializeField] Player refLifeplayer = null;
-    // Start is called before the first frame update
+
     void Start()
     {
         Init();
@@ -30,18 +44,13 @@ public class UIplay : MonoBehaviour
     void Init()
     {
         dashInitialIconColor = dashIcon.canvasRenderer.GetColor();
+        invisibilityIconInitialColor = invisibilityIcon.canvasRenderer.GetColor();
 
         refplayer.OnDash += UpdateDashUsedIconColor;
+        refplayer.OnInvisibilityStarted += UpdateInvisibilityIconColor;
         refplayer.OnDashFinished += ResetDashIconColor;
+        
     }
-
-    private void ResetDashIconColor()
-    {
-        dashIcon.canvasRenderer.SetColor(dashInitialIconColor);
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         UILifeSlider += UILife;
@@ -56,6 +65,30 @@ public class UIplay : MonoBehaviour
         UITime += TimerDash;
         UITime?.Invoke(refplayer.RegenDash);
     }
+
+    private void UpdateInvisibilityIconColor()
+    {
+        invisibilityIcon.canvasRenderer.SetColor(invisibilityIconColor);
+        Invoke(nameof(ResetInvisibilityIconColor), refplayer.TimerInvi);
+
+    }
+    private void ResetIconColor(Image _iconToChange)  // couldn't turn this one into lambda for an Invoke();
+    {
+        _iconToChange.canvasRenderer.SetColor(invisibilityIconInitialColor);
+
+    }
+    private void ResetInvisibilityIconColor()
+    {
+        invisibilityIcon.canvasRenderer.SetColor(invisibilityIconInitialColor);
+
+    }
+    private void ResetDashIconColor()
+    {
+        dashIcon.canvasRenderer.SetColor(dashInitialIconColor);
+
+    }
+
+    // Update is called once per frame
 
     public void UpdateDashUsedIconColor()
     {
