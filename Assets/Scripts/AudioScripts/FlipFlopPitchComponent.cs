@@ -21,11 +21,10 @@ public class FlipFlopPitchComponent : MonoBehaviour
 
     void Init()
     {
-        playerMoveCompoRef = GetComponent<Player>().GetComponent<MovementComponent>();
+        playerMoveCompoRef = GetComponent<MovementComponent>();
         if (!playerMoveCompoRef) return;
 
-        audioSource = GetComponent<AudioSource>();
-        if (!audioSource) return;
+       
         audioSource.pitch = startPitch;
 
         playerMoveCompoRef.OnDash += SetPitch;
