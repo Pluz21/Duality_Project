@@ -34,6 +34,8 @@ public class DayNight : MonoBehaviour
         //maxTime = speedSun/2 - 0.8f;
         speedSun = 180 /maxTime;       // Scaling the sunSpeed to the maxTime (one day or one night is 180 degrees)
         OnTimeElapsed += SetDayNightState;
+        RenderSettings.ambientSkyColor = Color.blue;
+        RenderSettings.ambientEquatorColor= Color.blue;
     }
 
     private void SetDayNightState()
