@@ -182,10 +182,11 @@ public class MovementComponent : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-           if (canBecomeInvisible)
-           TimeInvi();
-            OnInvisibilityStarted?.Invoke();
-
+            if (canBecomeInvisible)
+            {
+                TimeInvi();
+                OnInvisibilityStarted?.Invoke();
+            }
 
         }
     }
