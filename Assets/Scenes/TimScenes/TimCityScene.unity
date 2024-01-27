@@ -239,6 +239,42 @@ PrefabInstance:
       propertyPath: sun
       value: 
       objectReference: {fileID: 4919837494555035161}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: customNightIntensity
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: customAmbientSkyColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: customAmbientSkyColor.b
+      value: 0.20754719
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: customAmbientSkyColor.g
+      value: 0.034069058
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: customAmbientSkyColor.r
+      value: 0.17154501
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: customAmbientEquatorColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: customAmbientEquatorColor.b
+      value: 0.21509439
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: customAmbientEquatorColor.g
+      value: 0.07426843
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: customAmbientEquatorColor.r
+      value: 0.1433529
+      objectReference: {fileID: 0}
     - target: {fileID: 5066499380267237800, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
       propertyPath: m_LocalPosition.x
       value: 739.9034
@@ -606,7 +642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3060074424418558362, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000030517578
+      value: 0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 3459752003646095375, guid: 3ef60ec5b9cdf334b87d6b4d6fbff0ba, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1382,7 +1418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad88f81015a333d4db29c04e2dc0ad99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 273203887}
 --- !u!33 &1417308635117372395
 MeshFilter:
   m_ObjectHideFlags: 0

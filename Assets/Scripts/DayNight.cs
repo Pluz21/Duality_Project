@@ -14,10 +14,21 @@ public enum DayState
 [Serializable]
 public struct AmbientColors
 {
-    public Color skyColor; public Color equatorColor;
-    public void UpdateAmbientColors(Color _skyColor, Color _equatorColor)
+    public Color skyColor; public Color equatorColor; public float ambientIntensity;
+    public void SetAmbientColors(Color _skyColor, Color _equatorColor)
     {
         skyColor = _skyColor; equatorColor = _equatorColor;
+    }
+    public void UpdateAmbientColors(Color _skyColor, Color _equatorColor)
+    {
+        RenderSettings.ambientSkyColor = _skyColor;
+        RenderSettings.ambientEquatorColor = _equatorColor;
+    }
+
+    public void UpdateAmbientIntensity(float _intensity)
+    {
+        RenderSettings.reflectionIntensity = _intensity;
+        Debug.Log("Called Test function in struct");
     }
     
 }
@@ -33,10 +44,15 @@ public class DayNight : MonoBehaviour
     [SerializeField] DayState dayState;
 
     //Colors for day and night shifting
+    //struct settings
     [SerializeField] AmbientColors dayColors = new AmbientColors();
     [SerializeField] AmbientColors nightColors = new AmbientColors();
+
+    //
     [SerializeField] Color customAmbientSkyColor = new Color();
     [SerializeField] Color customAmbientEquatorColor = new Color();
+    [SerializeField,Range(0.1f,0.8f)] float customNightIntensity = 0.4f;
+    [SerializeField] float customDayIntensity = 1f;
     public DayState DayStateRef => dayState;
     // Start is called before the first frame update
     void Start()
@@ -56,9 +72,9 @@ public class DayNight : MonoBehaviour
 
     void InitLightEnvironmentColorSettings()
     {
-        dayColors.UpdateAmbientColors(RenderSettings.ambientSkyColor, RenderSettings.ambientEquatorColor);
-        nightColors.UpdateAmbientColors(customAmbientSkyColor, customAmbientEquatorColor);
-        
+        dayColors.SetAmbientColors(RenderSettings.ambientSkyColor, RenderSettings.ambientEquatorColor);
+        nightColors.SetAmbientColors(customAmbientSkyColor, customAmbientEquatorColor);
+
     }
 
     
@@ -72,13 +88,13 @@ public class DayNight : MonoBehaviour
 
     private void SetNightAmbientColors()
     {
-        RenderSettings.ambientSkyColor = nightColors.skyColor;
-        RenderSettings.ambientEquatorColor = nightColors.equatorColor;
+        nightColors.UpdateAmbientColors(nightColors.skyColor, nightColors.equatorColor);
+        nightColors.UpdateAmbientIntensity(customNightIntensity);
     }
     private void SetDayAmbientColors()
     {
-        RenderSettings.ambientSkyColor = dayColors.skyColor;
-        RenderSettings.ambientEquatorColor = dayColors.equatorColor;
+        dayColors.UpdateAmbientColors(dayColors.skyColor, dayColors.equatorColor);
+        nightColors.UpdateAmbientIntensity(customDayIntensity);
     }
 
     private void SetDayNightState()
@@ -94,16 +110,7 @@ public class DayNight : MonoBehaviour
             OnDayStarted?.Invoke();
             dayState = DayState.DAY;
         }
-
-        //if (dayState == DayState.NIGHT)
-        //{ 
-        //    dayState = DayState.DAY;
-        //    Debug.Log($"It is now {dayState}");
-            
-        //}
     }
-
-    // Update is called once per frame
     void Update()
     {
        
