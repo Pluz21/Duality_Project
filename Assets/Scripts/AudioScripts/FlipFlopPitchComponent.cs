@@ -12,7 +12,7 @@ public class FlipFlopPitchComponent : MonoBehaviour
     [SerializeField]private MovementComponent playerMoveCompoRef = null;
 
 
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private List<AudioSource> allAudioSource;
 
     void Start()
     {
@@ -25,14 +25,19 @@ public class FlipFlopPitchComponent : MonoBehaviour
         if (!playerMoveCompoRef) return;
 
        
-        audioSource.pitch = startPitch;
 
         playerMoveCompoRef.OnDash += SetPitch;
+        playerMoveCompoRef.OnInvisibilityStarted += SetPitch;
     }
 
     private void SetPitch()
     {
-        audioSource.pitch = FindRandomFloat();
+        int _size = allAudioSource.Count;
+        for (int i = 0; i < _size; i++) 
+        { 
+            allAudioSource[i].pitch = FindRandomFloat();
+        }
+        //audioSource.pitch = FindRandomFloat();
         Debug.Log("Set Pitch Called");
     }
 
