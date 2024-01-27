@@ -41,12 +41,22 @@ public class Enemy : MonoBehaviour
     public EnemyPatrolComponent PatrolComponent => patrolComponent;
 
     public GameObject Target => target;
-    public int Damage 
+    public int Damage
     {
         get { return damage; }
         set { damage = value; }
     }
-    public bool CanStartMoving 
+    public float AttackSpeed
+    {
+        get { return attackSpeed; }
+        set { attackSpeed = value; }
+    } 
+    public float EnemyMoveSpeed
+    {
+        get { return enemyMoveSpeed; }
+        set { enemyMoveSpeed = value; }
+    }
+    public bool CanStartMoving
     {
         get { return canStartMoving; }
         set { canStartMoving = value; }
@@ -83,7 +93,7 @@ public class Enemy : MonoBehaviour
 
     void EnemyLogic()
     {
-        
+
         if (patrolComponent.CanPatrol) return;
         if (CheckPlayerIsInvisible())
         {
@@ -117,32 +127,32 @@ public class Enemy : MonoBehaviour
             return;
         }
         if (!target)
-        { 
-        OnTargetSet?.Invoke();
-        target = _target;
-        Debug.Log($"Target set! Now chasing : {_target}");
+        {
+            OnTargetSet?.Invoke();
+            target = _target;
+            Debug.Log($"Target set! Now chasing : {_target}");
         }
     }
 
     public void MoveTo(GameObject _target)
     {
-       transform.position = Vector3.MoveTowards(transform.position, _target.transform.position + new Vector3(0,1,0), Time.deltaTime * enemyMoveSpeed);
-       RotateTo(_target.transform.position);
+        transform.position = Vector3.MoveTowards(transform.position, _target.transform.position + new Vector3(0, 1, 0), Time.deltaTime * enemyMoveSpeed);
+        RotateTo(_target.transform.position);
 
     }
     public void MoveTo(Vector3 _target)
     {
-      
-       transform.position = Vector3.MoveTowards(transform.position, _target, Time.deltaTime * enemyMoveSpeed);
-       RotateTo(initialPos);
-        
+
+        transform.position = Vector3.MoveTowards(transform.position, _target, Time.deltaTime * enemyMoveSpeed);
+        RotateTo(initialPos);
+
 
     }
 
     public void RotateTo(Vector3 _target)
     {
         Vector3 _targetDirection = (_target - transform.position);
-        Vector3 _newRotation = Vector3.RotateTowards(transform.forward, _targetDirection, Time.deltaTime * enemyRotateSpeed,0);
+        Vector3 _newRotation = Vector3.RotateTowards(transform.forward, _targetDirection, Time.deltaTime * enemyRotateSpeed, 0);
         transform.rotation = Quaternion.LookRotation(_newRotation);
     }
 
@@ -167,16 +177,15 @@ public class Enemy : MonoBehaviour
 
         }
         else if (_distance >= minDistanceAllowedToPlayer)
-        { 
+        {
             OnInRangeToPlayer?.Invoke(false);
             Debug.Log("Melee Range of player");
         }
-     
+
 
     }
 
-
-
+  
     void IsInRangeToPlayerLogic(bool _value)
     {
         canStartMoving = !_value;
