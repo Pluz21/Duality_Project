@@ -41,6 +41,11 @@ public class UI_GameOptionPanel : MonoBehaviour
         for (int i = 0; i < _size; i++)
         {
             enemyManager.AllEnemies[i].Damage = _index + baseDifficulty * difficultyScaling;
+        
+            enemyManager.AllEnemies[i].AttackSpeed = _index + baseDifficulty * difficultyScaling + enemyManager.AllEnemies[i].AttackSpeed;
+            enemyManager.AllEnemies[i].EnemyMoveSpeed = _index + baseDifficulty * difficultyScaling + enemyManager.AllEnemies[i].EnemyMoveSpeed;
+
+            //enemyManager.AllEnemies[i].
         }
         Debug.Log($"Now selected {_index}");
 
