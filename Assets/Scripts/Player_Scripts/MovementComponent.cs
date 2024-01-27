@@ -48,7 +48,8 @@ public class MovementComponent : MonoBehaviour
     public event Action OnDashSoundPlayed = null;
 
     //Audio
-    [SerializeField] AudioSource soundSource = null;
+    [SerializeField] AudioSource dashSoundSource = null;
+    [SerializeField] AudioSource invisbilityStartedSoundSource = null;
     //[SerializeField] AudioClip dashSound = null;
 
     //Accessors
@@ -90,7 +91,8 @@ public class MovementComponent : MonoBehaviour
     {
         dayNight.OnNightStarted += EnableInvisibility;
         dayNight.OnDayStarted += DisableInvisibility;
-        OnDash += () => { PlaySound(soundSource); };
+        OnDash += () => { PlaySound(dashSoundSource); };
+        OnInvisibilityStarted += () => { PlaySound(invisbilityStartedSoundSource); };
 
     }
     void Update()
@@ -180,9 +182,11 @@ public class MovementComponent : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-           if (canBecomeInvisible)
-           TimeInvi();
-
+            if (canBecomeInvisible)
+            {
+                TimeInvi();
+                OnInvisibilityStarted?.Invoke();
+            }
 
         }
     }
@@ -194,7 +198,6 @@ public class MovementComponent : MonoBehaviour
             invi?.Invoke(true);
             isInvisible = true;
             timerInvi -= Time.deltaTime; 
-            OnInvisibilityStarted?.Invoke();
 
         }
         else
