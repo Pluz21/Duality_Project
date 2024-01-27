@@ -44,7 +44,9 @@ public class MovementComponent : MonoBehaviour
     public event Action OnDash = null;
     public event Action OnDashFinished = null;
 
-    
+    //Audio
+    [SerializeField] AudioSource soundSource = null;
+    //[SerializeField] AudioClip dashSound = null;
 
     //Accessors
     public bool IsCrouching => isCrouching;
@@ -80,6 +82,7 @@ public class MovementComponent : MonoBehaviour
     {
         dayNight.OnNightStarted += EnableInvisibility;
         dayNight.OnDayStarted += DisableInvisibility;
+
     }
     void Update()
     {
@@ -215,6 +218,12 @@ public class MovementComponent : MonoBehaviour
 
     }
 
+
+
+    void PlaySound(AudioSource _source)
+    {
+        _source.Play();
+    }
     void DetectFloor()
     {
         //Vector2 _pos2D = input.ClickToMove.ReadValue<Vector2>();
