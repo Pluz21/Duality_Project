@@ -10,7 +10,9 @@ public class UI_WinMenu : MonoBehaviour
     [SerializeField] Scene sceneToRestart;
     void Start()
     {
+        restartButton = GetComponentInChildren<Button>();
         winMenuPanel.SetActive(false);
+        if(restartButton)
         restartButton.onClick.AddListener(RestartLevel);
     }
 
