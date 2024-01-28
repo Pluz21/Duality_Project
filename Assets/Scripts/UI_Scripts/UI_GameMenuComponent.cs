@@ -104,7 +104,8 @@ public class UI_GameMenuComponent : MonoBehaviour
         Debug.Log("opening menu");
         openMenu.performed -= OpenGameMenu;
         openMenu.performed += CloseGameMenu;
-        PauseGame();
+        if (!gameMenu) return;
+        gameMenu.gameObject.SetActive(true);
     }
     void CloseGameMenu(InputAction.CallbackContext _context)
     {
