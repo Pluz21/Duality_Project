@@ -8,10 +8,10 @@ using System.Linq;
 public class Enemy : MonoBehaviour
 {
     //sound
-    [SerializeField] AudioSource audioSound = null;
-    [SerializeField] AudioClip attacksound = null;
+    [SerializeField] AudioSource enemyPunchAttackSource = null;
+    //[SerializeField] AudioClip attacksound = null;
     //anim
-    public event Action<bool> attack = null;
+    public event Action OnAttack = null;
     //Events
     public event Action<bool> OnInRangeToPlayer;
     public event Action<bool> OnInRangeToAttackPlayer;
@@ -247,13 +247,13 @@ public class Enemy : MonoBehaviour
         if (isInRangeToPlayer && target)
         {
             DealDamage();
-            attack?.Invoke(true);
-            audioSound.clip = attacksound;
-            audioSound.Play();
+            OnAttack?.Invoke();
+            enemyPunchAttackSource.Play();
+            //enemyPunchAttackSource.Play();
 
         }
         else
-            attack?.Invoke(false);
+            OnAttack?.Invoke();
     }
 
     void DealDamage()

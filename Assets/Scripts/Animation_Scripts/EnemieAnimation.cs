@@ -17,13 +17,13 @@ public class EnemieAnimation : MonoBehaviour
     void Update()
     {
       
-      refEnemy.attack += updateAttackAnimator;
+      refEnemy.OnAttack += updateAttackAnimator;
       
     }
-    public void updateAttackAnimator(bool _value)
+    public void updateAttackAnimator()
     {
         if (enemiAnimator == null) return;
-        enemiAnimator.SetBool(AnimationEnemy.Attack, _value);
+        enemiAnimator.SetBool(AnimationEnemy.Attack, true);
 
     }
 }

@@ -10,7 +10,7 @@ public class FlipFlopPitchComponent : MonoBehaviour
     [SerializeField,Range(0.1f,0.9f)] public float randomFloatMin = 0.5f;
     [SerializeField, Range(1f, 1.5f)] public float randomFloatMax = 1.2f;
     [SerializeField]private MovementComponent playerMoveCompoRef = null;
-
+    [SerializeField] Enemy enemyRef = null;
 
     [SerializeField] private List<AudioSource> allAudioSource;
 
@@ -21,13 +21,18 @@ public class FlipFlopPitchComponent : MonoBehaviour
 
     void Init()
     {
+
+
+        enemyRef = GetComponent<Enemy>();
+        if (enemyRef)
+        {
+            enemyRef.OnAttack += SetPitch; 
+        }
         playerMoveCompoRef = GetComponent<MovementComponent>();
         if (!playerMoveCompoRef) return;
-
-       
-
         playerMoveCompoRef.OnDash += SetPitch;
         playerMoveCompoRef.OnInvisibilityStarted += SetPitch;
+
     }
 
     private void SetPitch()
