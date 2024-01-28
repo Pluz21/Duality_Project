@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     //Events
     public event Action<bool> OnInRangeToPlayer;
+    public event Action<bool> OnInRangeToAttackPlayer;
     public event Action OnTargetSet;
 
     //Manager
@@ -27,6 +28,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] Quaternion initialRot = Quaternion.identity;
     [SerializeField] float minDistanceAllowedToInitialPos = 3;
     [SerializeField] float minDistanceAllowedToPlayer = 2;
+    [SerializeField] float attackRangeOffsetToPlayer = 2;
 
     // Attack - Damage 
     [SerializeField] int damage = 1;
@@ -74,6 +76,7 @@ public class Enemy : MonoBehaviour
         enemyManager = FindAnyObjectByType<EnemyManager>();
         enemyManager.AddElement(this);
         OnInRangeToPlayer += IsInRangeToPlayerLogic;
+        OnInRangeToAttackPlayer += IsInRangeToAttackPlayerLogic;
         InvokeRepeating(nameof(AttackPlayer), 0, attackSpeed);
 
         initialPos = transform.position;
@@ -166,29 +169,38 @@ public class Enemy : MonoBehaviour
     void CheckDistanceToPlayer()
     {
         float _distance = Vector3.Distance(transform.position, target.transform.position);
-        if (_distance <= minDistanceAllowedToPlayer && !isInRangeToPlayer)
+        if (_distance <= minDistanceAllowedToPlayer + attackRangeOffsetToPlayer)
+        { 
+            Debug.Log("In Range TO ATTACK player");
+            OnInRangeToAttackPlayer?.Invoke(true);
+        if (_distance <= minDistanceAllowedToPlayer)    //&& !isInRangeToPlayer)
         {
-            Debug.Log("In Melee Range of player");
 
             OnInRangeToPlayer?.Invoke(true);   // Do something here like dealing damage or moving backwards or whatever
 
         }
+        }
         else if (_distance >= minDistanceAllowedToPlayer)
         {
             OnInRangeToPlayer?.Invoke(false);
+            OnInRangeToAttackPlayer?.Invoke(false);
             Debug.Log("Melee Range of player");
         }
 
 
     }
 
-  
     void IsInRangeToPlayerLogic(bool _value)
     {
         canStartMoving = !_value;
+        //isInRangeToPlayer = _value;
+
+
+    }
+    void IsInRangeToAttackPlayerLogic(bool _value)
+    {
+        
         isInRangeToPlayer = _value;
-
-
     }
 
     public bool CheckPlayerIsInvisible()
@@ -225,9 +237,10 @@ public class Enemy : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        if(target)
-        AnmaGizmos.DrawSphere(target.transform.position, 1, Color.green);
-        AnmaGizmos.DrawSphere(initialPos, 1, Color.magenta);
-        AnmaGizmos.DrawSphere(transform.position, minDistanceAllowedToPlayer, Color.red);
+            AnmaGizmos.DrawSphere(transform.position, minDistanceAllowedToPlayer + attackRangeOffsetToPlayer, Color.red);
+            AnmaGizmos.DrawSphere(transform.position, minDistanceAllowedToPlayer, Color.magenta);
+        //AnmaGizmos.DrawSphere(target.transform.position, 1, Color.green);
+        //AnmaGizmos.DrawSphere(initialPos, 1, Color.magenta);
+        //AnmaGizmos.DrawSphere(transform.position, minDistanceAllowedToPlayer, Color.red);
     }
 }

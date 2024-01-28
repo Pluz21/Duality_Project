@@ -3823,6 +3823,7 @@ MonoBehaviour:
   initialRot: {x: 0, y: 0, z: 0, w: 1}
   minDistanceAllowedToInitialPos: 3
   minDistanceAllowedToPlayer: 2
+  attackRangeOffsetToPlayer: 0.5
   damage: 1
   attackSpeed: 0.5
   patrolComponent: {fileID: 0}
@@ -6590,6 +6591,7 @@ MonoBehaviour:
   initialRot: {x: 0, y: 0, z: 0, w: 1}
   minDistanceAllowedToInitialPos: 3
   minDistanceAllowedToPlayer: 2
+  attackRangeOffsetToPlayer: 0.5
   damage: 1
   attackSpeed: 0.5
   patrolComponent: {fileID: 0}
@@ -10265,6 +10267,7 @@ MonoBehaviour:
   initialRot: {x: 0, y: 0, z: 0, w: 1}
   minDistanceAllowedToInitialPos: 3
   minDistanceAllowedToPlayer: 2
+  attackRangeOffsetToPlayer: 0.5
   damage: 1
   attackSpeed: 0.5
   patrolComponent: {fileID: 0}
@@ -12858,6 +12861,7 @@ MonoBehaviour:
   initialRot: {x: 0, y: 0, z: 0, w: 1}
   minDistanceAllowedToInitialPos: 3
   minDistanceAllowedToPlayer: 2
+  attackRangeOffsetToPlayer: 0.5
   damage: 1
   attackSpeed: 0.5
   patrolComponent: {fileID: 0}
@@ -13116,6 +13120,7 @@ MonoBehaviour:
   initialRot: {x: 0, y: 0, z: 0, w: 1}
   minDistanceAllowedToInitialPos: 3
   minDistanceAllowedToPlayer: 2
+  attackRangeOffsetToPlayer: 0.5
   damage: 1
   attackSpeed: 0.5
   patrolComponent: {fileID: 0}
@@ -19866,6 +19871,7 @@ MonoBehaviour:
   initialRot: {x: 0, y: 0, z: 0, w: 1}
   minDistanceAllowedToInitialPos: 3
   minDistanceAllowedToPlayer: 2
+  attackRangeOffsetToPlayer: 2
   damage: 1
   attackSpeed: 0.5
   patrolComponent: {fileID: 0}
@@ -22721,6 +22727,7 @@ MonoBehaviour:
   initialRot: {x: 0, y: 0, z: 0, w: 1}
   minDistanceAllowedToInitialPos: 3
   minDistanceAllowedToPlayer: 2
+  attackRangeOffsetToPlayer: 0.5
   damage: 1
   attackSpeed: 0.5
   patrolComponent: {fileID: 0}
@@ -25127,6 +25134,7 @@ MonoBehaviour:
   initialRot: {x: 0, y: 0, z: 0, w: 1}
   minDistanceAllowedToInitialPos: 3
   minDistanceAllowedToPlayer: 2
+  attackRangeOffsetToPlayer: 0.5
   damage: 1
   attackSpeed: 0.5
   patrolComponent: {fileID: 0}
