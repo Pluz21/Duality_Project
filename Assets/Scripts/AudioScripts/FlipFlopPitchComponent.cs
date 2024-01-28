@@ -26,7 +26,7 @@ public class FlipFlopPitchComponent : MonoBehaviour
         enemyRef = GetComponent<Enemy>();
         if (enemyRef)
         {
-            enemyRef.OnAttack += SetPitch; 
+            enemyRef.OnAttackLanded += SetPitch; 
         }
         playerMoveCompoRef = GetComponent<MovementComponent>();
         if (!playerMoveCompoRef) return;

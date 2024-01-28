@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TimScenes/OldScenes/IntroMenuScene.unity
     guid: dd78ef5e58f643543a7443fea9a4e521
   - enabled: 1
-    path: Assets/Scenes/TimScenes/OldScenes/TimCityScene.unity
-    guid: 42c9565464dd337419b3418702e5b216
+    path: Assets/Scenes/TimScenes/TimSceneFinal.unity
+    guid: 283fc595ac874fa43b02aa08b9708dea
   m_configObjects: {}

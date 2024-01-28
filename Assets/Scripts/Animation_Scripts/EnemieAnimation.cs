@@ -20,10 +20,10 @@ public class EnemieAnimation : MonoBehaviour
       refEnemy.OnAttack += updateAttackAnimator;
       
     }
-    public void updateAttackAnimator()
+    public void updateAttackAnimator(bool _value)
     {
         if (enemiAnimator == null) return;
-        enemiAnimator.SetBool(AnimationEnemy.Attack, true);
+        enemiAnimator.SetBool(AnimationEnemy.Attack, _value);
 
     }
 }

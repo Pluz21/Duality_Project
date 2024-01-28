@@ -11,7 +11,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] AudioSource enemyPunchAttackSource = null;
     //[SerializeField] AudioClip attacksound = null;
     //anim
-    public event Action OnAttack = null;
+    public event Action<bool> OnAttack = null;
+    public event Action OnAttackLanded = null;
     //Events
     public event Action<bool> OnInRangeToPlayer;
     public event Action<bool> OnInRangeToAttackPlayer;
@@ -247,13 +248,14 @@ public class Enemy : MonoBehaviour
         if (isInRangeToPlayer && target)
         {
             DealDamage();
-            OnAttack?.Invoke();
+            OnAttack?.Invoke(true);
+            OnAttackLanded?.Invoke();
             enemyPunchAttackSource.Play();
             //enemyPunchAttackSource.Play();
 
         }
         else
-            OnAttack?.Invoke();
+            OnAttack?.Invoke(false);
     }
 
     void DealDamage()
