@@ -266,6 +266,7 @@ MonoBehaviour:
   initialRot: {x: 0, y: 0, z: 0, w: 1}
   minDistanceAllowedToInitialPos: 3
   minDistanceAllowedToPlayer: 2
+  attackRangeOffsetToPlayer: 2
   damage: 1
   attackSpeed: 0.5
   patrolComponent: {fileID: 0}
@@ -662,6 +663,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23708c99b9b737a4d9e77cb482ae3446, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4675279212869020853}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23708c99b9b737a4d9e77cb482ae3446, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 594930254018484434}
   m_SourcePrefab: {fileID: 100100000, guid: 23708c99b9b737a4d9e77cb482ae3446, type: 3}
 --- !u!4 &340839383786045291 stripped
 Transform:
@@ -694,3 +698,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &594930254018484434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148760065809311185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475b4b69243f9064090744dcf2a1c387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiAnimator: {fileID: 4675279212869020853}
+  refEnemy: {fileID: 4355218901033781535}

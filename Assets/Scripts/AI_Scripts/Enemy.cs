@@ -7,6 +7,8 @@ using System.Linq;
 [RequireComponent(typeof(DetectionComponent))]
 public class Enemy : MonoBehaviour
 {
+    //anim
+    public event Action<bool> attack = null;
     //Events
     public event Action<bool> OnInRangeToPlayer;
     public event Action<bool> OnInRangeToAttackPlayer;
@@ -75,6 +77,7 @@ public class Enemy : MonoBehaviour
 
     void Init()
     {
+        
         enemyManager = FindAnyObjectByType<EnemyManager>();
         enemyManager.AddElement(this);
         OnInRangeToPlayer += IsInRangeToPlayerLogic;
@@ -86,6 +89,10 @@ public class Enemy : MonoBehaviour
         patrolComponent = GetComponent<EnemyPatrolComponent>();
 
         SetLayersToIgnorePlayerRB();
+
+        
+      
+        //DealDamage += animRef.updateAttackAnimator;
     }
 
 
@@ -232,12 +239,16 @@ public class Enemy : MonoBehaviour
         return false;
     }
 
-    void AttackPlayer()
+    public void AttackPlayer()
     {
         if (isInRangeToPlayer && target)
         {
             DealDamage();
+            attack?.Invoke(true);
+            
         }
+        else
+            attack?.Invoke(false);
     }
 
     void DealDamage()
