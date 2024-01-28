@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
         movementComponent.dash += playerAnimation.UpdateIsDashingAnimatorParam;
         movementComponent.invi += playerAnimation.UpdateIsInvisibleAnimatorParam;
 
+        
     }
 
     void InitEvents()
