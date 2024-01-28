@@ -1201,6 +1201,7 @@ GameObject:
   - component: {fileID: 3405887993578952353}
   - component: {fileID: 9031158528803750405}
   - component: {fileID: 2372404953972030401}
+  - component: {fileID: 9031158528803750406}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (1)
   m_TagString: Untagged
@@ -1913,6 +1914,7 @@ GameObject:
   - component: {fileID: 7878970716658218346}
   - component: {fileID: 3688798563591754636}
   - component: {fileID: 1374883601690014827}
+  - component: {fileID: 7878970716658218347}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (40)
   m_TagString: Untagged
@@ -1932,6 +1934,7 @@ GameObject:
   - component: {fileID: 4856659183651235491}
   - component: {fileID: 766354533308279361}
   - component: {fileID: 3303566160666283282}
+  - component: {fileID: 4856659183651235492}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (36)
   m_TagString: Untagged
@@ -1994,6 +1997,7 @@ GameObject:
   - component: {fileID: 4620532648299391772}
   - component: {fileID: 1727567512440170026}
   - component: {fileID: 5103435182195924432}
+  - component: {fileID: 5103435182195924433}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (22)
   m_TagString: Untagged
@@ -2682,6 +2686,7 @@ GameObject:
   - component: {fileID: 3562474655642997562}
   - component: {fileID: 8146536986324401552}
   - component: {fileID: 4338838450401813109}
+  - component: {fileID: 8146536986324401553}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (16)
   m_TagString: Untagged
@@ -2848,6 +2853,7 @@ GameObject:
   - component: {fileID: 8579032907585983788}
   - component: {fileID: 7469690309398334854}
   - component: {fileID: 4399343968415235104}
+  - component: {fileID: 8579032907585983789}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (28)
   m_TagString: Untagged
@@ -3696,6 +3702,7 @@ GameObject:
   - component: {fileID: 8753041911443304421}
   - component: {fileID: 4424049353206901574}
   - component: {fileID: 6523626791426207724}
+  - component: {fileID: 8753041911443304422}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (3)
   m_TagString: Untagged
@@ -3836,6 +3843,7 @@ GameObject:
   - component: {fileID: 6078441586143220124}
   - component: {fileID: 4062847832270680966}
   - component: {fileID: 4937980693955767973}
+  - component: {fileID: 6391417232452642337}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (10)
   m_TagString: Untagged
@@ -4898,6 +4906,7 @@ GameObject:
   - component: {fileID: 8275641066810018268}
   - component: {fileID: 1683207612892070806}
   - component: {fileID: 4684548590139296981}
+  - component: {fileID: 8275641066810018269}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (5)
   m_TagString: Untagged
@@ -5023,6 +5032,7 @@ GameObject:
   - component: {fileID: 1183262696203275428}
   - component: {fileID: 6161026697568184090}
   - component: {fileID: 4853728773562774758}
+  - component: {fileID: 6161026697568184091}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (7)
   m_TagString: Untagged
@@ -5596,6 +5606,7 @@ GameObject:
   - component: {fileID: 2325232047259139888}
   - component: {fileID: 3543407940274261811}
   - component: {fileID: 7823379978722425569}
+  - component: {fileID: 7823379978722425570}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (27)
   m_TagString: Untagged
@@ -6682,6 +6693,7 @@ GameObject:
   - component: {fileID: 8516723017435382585}
   - component: {fileID: 5054564805921252740}
   - component: {fileID: 5127152002883338717}
+  - component: {fileID: 8924740846616362818}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (25)
   m_TagString: Untagged
@@ -6905,6 +6917,7 @@ GameObject:
   - component: {fileID: 684307935650251290}
   - component: {fileID: 7630353178876260843}
   - component: {fileID: 2059571444576603476}
+  - component: {fileID: 7630353178876260844}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (24)
   m_TagString: Untagged
@@ -7652,6 +7665,7 @@ GameObject:
   - component: {fileID: 3770220240222223730}
   - component: {fileID: 2342972849285012202}
   - component: {fileID: 3311332956598811961}
+  - component: {fileID: 4302969611319113109}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (2)
   m_TagString: Untagged
@@ -7787,6 +7801,7 @@ GameObject:
   - component: {fileID: 3523664858412801728}
   - component: {fileID: 7120724165988120457}
   - component: {fileID: 4660373274872612761}
+  - component: {fileID: 7120724165988120458}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (11)
   m_TagString: Untagged
@@ -8223,6 +8238,7 @@ GameObject:
   - component: {fileID: 4127483211968513456}
   - component: {fileID: 1383815884545321477}
   - component: {fileID: 190688804144479435}
+  - component: {fileID: 7922218684479081162}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (37)
   m_TagString: Untagged
@@ -8908,6 +8924,7 @@ GameObject:
   - component: {fileID: 288823083787203601}
   - component: {fileID: 5075184894993444311}
   - component: {fileID: 5356372595271621447}
+  - component: {fileID: 7455578808471608694}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (29)
   m_TagString: Untagged
@@ -9744,6 +9761,7 @@ GameObject:
   - component: {fileID: 8016741282767252109}
   - component: {fileID: 8391644671411410580}
   - component: {fileID: 5982148684468402808}
+  - component: {fileID: 8568124500476430006}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (33)
   m_TagString: Untagged
@@ -9995,7 +10013,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.97338027, b: 0.811, a: 1}
-  m_Intensity: 3
+  m_Intensity: 46.16
   m_Range: 7
   m_SpotAngle: 101
   m_InnerSpotAngle: 7.6
@@ -10289,6 +10307,7 @@ GameObject:
   - component: {fileID: 6348556170649589778}
   - component: {fileID: 1708017919121737068}
   - component: {fileID: 7647076322130199328}
+  - component: {fileID: 8214722525589347242}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (15)
   m_TagString: Untagged
@@ -10902,6 +10921,7 @@ GameObject:
   - component: {fileID: 1914015125504427993}
   - component: {fileID: 5245028090009670050}
   - component: {fileID: 6133350505270243235}
+  - component: {fileID: 6133350505270243236}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (26)
   m_TagString: Untagged
@@ -11507,6 +11527,7 @@ GameObject:
   - component: {fileID: 3812518394063377801}
   - component: {fileID: 5565813715241842744}
   - component: {fileID: 2969049742606411503}
+  - component: {fileID: 6247870696289761414}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (23)
   m_TagString: Untagged
@@ -12502,6 +12523,7 @@ GameObject:
   - component: {fileID: 6420870487396866157}
   - component: {fileID: 6329306281293206323}
   - component: {fileID: 4880355772435601858}
+  - component: {fileID: 6420870487396866158}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (38)
   m_TagString: Untagged
@@ -12521,6 +12543,7 @@ GameObject:
   - component: {fileID: 7377130349177482908}
   - component: {fileID: 5654864495586709148}
   - component: {fileID: 3879130184400163310}
+  - component: {fileID: 7377130349177482909}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (8)
   m_TagString: Untagged
@@ -12751,6 +12774,7 @@ GameObject:
   - component: {fileID: 3175552697189748717}
   - component: {fileID: 2100048160910239198}
   - component: {fileID: 4417202869222678951}
+  - component: {fileID: 7747133821485515355}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (32)
   m_TagString: Untagged
@@ -12959,6 +12983,22 @@ Transform:
   - {fileID: 4907837590398041511}
   m_Father: {fileID: 6509342429783586494}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4302969611319113109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2312060352021662264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!4 &4315836398884382368
 Transform:
   m_ObjectHideFlags: 0
@@ -14177,6 +14217,7 @@ GameObject:
   - component: {fileID: 8085632979944827564}
   - component: {fileID: 9202979561905299917}
   - component: {fileID: 3241464992671402330}
+  - component: {fileID: 9202979561905299918}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (35)
   m_TagString: Untagged
@@ -14626,6 +14667,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315503655230161027}
   m_Mesh: {fileID: 8392983433060272210, guid: 7c254f7259153db43b84ee9acf8f2e96, type: 3}
+--- !u!114 &4856659183651235492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315503655230161027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!136 &4880355772435601858
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15576,6 +15633,22 @@ CapsuleCollider:
   m_Height: 3.543503
   m_Direction: 1
   m_Center: {x: 0, y: 1.7717515, z: 0.0043095946}
+--- !u!114 &5103435182195924433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347142765601212430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!33 &5123817128739646458
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17746,6 +17819,7 @@ GameObject:
   - component: {fileID: 2437195909141976997}
   - component: {fileID: 3759863840411553514}
   - component: {fileID: 3038186504371773255}
+  - component: {fileID: 8231733098410683937}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (21)
   m_TagString: Untagged
@@ -18458,6 +18532,22 @@ CapsuleCollider:
   m_Height: 3.543503
   m_Direction: 1
   m_Center: {x: 0, y: 1.7717515, z: 0.0043095946}
+--- !u!114 &6133350505270243236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3467289021477854836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!1 &6138041924346773136
 GameObject:
   m_ObjectHideFlags: 0
@@ -18555,6 +18645,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6161026697568184091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446721184992961067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!114 &6171746827239501873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18793,6 +18899,22 @@ Transform:
   - {fileID: 1782270401381743196}
   m_Father: {fileID: 6509342429783586494}
   m_LocalEulerAnglesHint: {x: 0, y: 6.599, z: 0}
+--- !u!114 &6247870696289761414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3694811723833837732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!108 &6254245879064050587
 Light:
   m_ObjectHideFlags: 0
@@ -19204,6 +19326,22 @@ Transform:
   - {fileID: 2230081334216733883}
   m_Father: {fileID: 6509342429783586494}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &6391417232452642337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106262738895537129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!108 &6391670281668635652
 Light:
   m_ObjectHideFlags: 0
@@ -19350,6 +19488,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4091461313509475780}
   m_Mesh: {fileID: 8392983433060272210, guid: 7c254f7259153db43b84ee9acf8f2e96, type: 3}
+--- !u!114 &6420870487396866158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091461313509475780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!4 &6427462616503114927
 Transform:
   m_ObjectHideFlags: 0
@@ -19773,6 +19927,7 @@ GameObject:
   - component: {fileID: 2053213491926651264}
   - component: {fileID: 3190306856061649481}
   - component: {fileID: 3626247603342306239}
+  - component: {fileID: 6539566941395410533}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (17)
   m_TagString: Untagged
@@ -19780,6 +19935,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6539566941395410533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539566941395410532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!108 &6545893339876331835
 Light:
   m_ObjectHideFlags: 0
@@ -20730,6 +20901,7 @@ GameObject:
   - component: {fileID: 7966277322796420738}
   - component: {fileID: 3073384807732127518}
   - component: {fileID: 7374669474729181208}
+  - component: {fileID: 9136618720503969370}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (18)
   m_TagString: Untagged
@@ -21249,6 +21421,7 @@ GameObject:
   - component: {fileID: 6991445297307861971}
   - component: {fileID: 7173548791180208394}
   - component: {fileID: 2099399462396017987}
+  - component: {fileID: 8166539899255355676}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (20)
   m_TagString: Untagged
@@ -21443,6 +21616,7 @@ GameObject:
   - component: {fileID: 1515376804355238421}
   - component: {fileID: 815833887315637029}
   - component: {fileID: 3171134112271447076}
+  - component: {fileID: 7067290587893009748}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (19)
   m_TagString: Untagged
@@ -21450,6 +21624,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7067290587893009748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067290587893009747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!1 &7069677182076118542
 GameObject:
   m_ObjectHideFlags: 0
@@ -21694,6 +21884,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7120724165988120458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2351554634839490742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!108 &7122468129873201288
 Light:
   m_ObjectHideFlags: 0
@@ -22322,6 +22528,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4102414936385327987}
   m_Mesh: {fileID: 8392983433060272210, guid: 7c254f7259153db43b84ee9acf8f2e96, type: 3}
+--- !u!114 &7377130349177482909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4102414936385327987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!108 &7377723841734123991
 Light:
   m_ObjectHideFlags: 0
@@ -22506,6 +22728,7 @@ GameObject:
   - component: {fileID: 8893658703007608714}
   - component: {fileID: 4468345509906307471}
   - component: {fileID: 2431180250337520979}
+  - component: {fileID: 8893658703007608715}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (41)
   m_TagString: Untagged
@@ -22643,6 +22866,22 @@ Transform:
   - {fileID: 2628909148198669247}
   m_Father: {fileID: 6509342429783586494}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &7455578808471608694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2733325032861115747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!23 &7469690309398334854
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22997,6 +23236,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7630353178876260844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076104396825583914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!108 &7644087101760659980
 Light:
   m_ObjectHideFlags: 0
@@ -23278,6 +23533,22 @@ Transform:
   - {fileID: 3595166863030875643}
   m_Father: {fileID: 6509342429783586494}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &7747133821485515355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4203345451537924282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!1 &7748286575529561152
 GameObject:
   m_ObjectHideFlags: 0
@@ -23348,6 +23619,22 @@ CapsuleCollider:
   m_Height: 3.543503
   m_Direction: 1
   m_Center: {x: 0, y: 1.7717515, z: 0.0043095946}
+--- !u!114 &7823379978722425570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687447713714553340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!1 &7824527828193230624
 GameObject:
   m_ObjectHideFlags: 0
@@ -23462,6 +23749,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307317714811564409}
   m_Mesh: {fileID: 8392983433060272210, guid: 7c254f7259153db43b84ee9acf8f2e96, type: 3}
+--- !u!114 &7878970716658218347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307317714811564409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!108 &7895102687910048906
 Light:
   m_ObjectHideFlags: 0
@@ -23605,6 +23908,22 @@ Transform:
   - {fileID: 2527754843801894389}
   m_Father: {fileID: 6509342429783586494}
   m_LocalEulerAnglesHint: {x: 0, y: 174.332, z: 0}
+--- !u!114 &7922218684479081162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2476946147218473290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!23 &7945337044597846696
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24116,6 +24435,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8146536986324401553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642833624670907910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!4 &8154374649524453943
 Transform:
   m_ObjectHideFlags: 0
@@ -24150,6 +24485,22 @@ Transform:
   - {fileID: 1241360846989770145}
   m_Father: {fileID: 6509342429783586494}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &8166539899255355676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7018526324961027911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!1 &8167361180961007095
 GameObject:
   m_ObjectHideFlags: 0
@@ -24433,6 +24784,22 @@ Transform:
   - {fileID: 4480746637075622817}
   m_Father: {fileID: 6509342429783586494}
   m_LocalEulerAnglesHint: {x: 0, y: 6.599, z: 0}
+--- !u!114 &8214722525589347242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3323425216789992609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!4 &8231733098410683936
 Transform:
   m_ObjectHideFlags: 0
@@ -24452,6 +24819,22 @@ Transform:
   - {fileID: 6680625375863639140}
   m_Father: {fileID: 6509342429783586494}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &8231733098410683937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5857954645785112660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!4 &8246191031127180743
 Transform:
   m_ObjectHideFlags: 0
@@ -24502,6 +24885,7 @@ GameObject:
   - component: {fileID: 4796977487117083893}
   - component: {fileID: 2237100718814895102}
   - component: {fileID: 769271458708469219}
+  - component: {fileID: 8248846410664620881}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (34)
   m_TagString: Untagged
@@ -24509,6 +24893,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8248846410664620881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248846410664620880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!1 &8254331051241490231
 GameObject:
   m_ObjectHideFlags: 0
@@ -24612,6 +25012,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427200181558661340}
   m_Mesh: {fileID: 8392983433060272210, guid: 7c254f7259153db43b84ee9acf8f2e96, type: 3}
+--- !u!114 &8275641066810018269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427200181558661340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!4 &8300238500611609720
 Transform:
   m_ObjectHideFlags: 0
@@ -25225,6 +25641,7 @@ GameObject:
   - component: {fileID: 8717917706541826183}
   - component: {fileID: 6607365219835597984}
   - component: {fileID: 8859573619431559290}
+  - component: {fileID: 8859573619431559291}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (6)
   m_TagString: Untagged
@@ -25372,6 +25789,22 @@ Transform:
   - {fileID: 5306917314874538235}
   m_Father: {fileID: 6509342429783586494}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &8568124500476430006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3094051209008478691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!108 &8577184016975118749
 Light:
   m_ObjectHideFlags: 0
@@ -25442,6 +25875,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691295426760594965}
   m_Mesh: {fileID: 8392983433060272210, guid: 7c254f7259153db43b84ee9acf8f2e96, type: 3}
+--- !u!114 &8579032907585983789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691295426760594965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!1 &8580029813159389074
 GameObject:
   m_ObjectHideFlags: 0
@@ -25881,6 +26330,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003693313200882711}
   m_Mesh: {fileID: 8392983433060272210, guid: 7c254f7259153db43b84ee9acf8f2e96, type: 3}
+--- !u!114 &8753041911443304422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003693313200882711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!4 &8761103143577447779
 Transform:
   m_ObjectHideFlags: 0
@@ -26094,6 +26559,22 @@ CapsuleCollider:
   m_Height: 3.543503
   m_Direction: 1
   m_Center: {x: 0, y: 1.7717515, z: 0.0043095946}
+--- !u!114 &8859573619431559291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8512178007468024208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!1 &8863613011361517466
 GameObject:
   m_ObjectHideFlags: 0
@@ -26133,6 +26614,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7413645955615601451}
   m_Mesh: {fileID: 8392983433060272210, guid: 7c254f7259153db43b84ee9acf8f2e96, type: 3}
+--- !u!114 &8893658703007608715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7413645955615601451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!23 &8894122786845641960
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26345,6 +26842,22 @@ Transform:
   - {fileID: 1086973269252555649}
   m_Father: {fileID: 6509342429783586494}
   m_LocalEulerAnglesHint: {x: 0, y: 6.599, z: 0}
+--- !u!114 &8924740846616362818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005884441596863545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!4 &8934281855997758056
 Transform:
   m_ObjectHideFlags: 0
@@ -26464,7 +26977,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.972549, b: 0.8117647, a: 1}
-  m_Intensity: 3
+  m_Intensity: 10.21
   m_Range: 2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -26593,6 +27106,7 @@ GameObject:
   - component: {fileID: 1011348391885364541}
   - component: {fileID: 1410386455978098999}
   - component: {fileID: 220499869949692352}
+  - component: {fileID: 9005678315408632212}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (39)
   m_TagString: Untagged
@@ -26600,6 +27114,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9005678315408632212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9005678315408632211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!1 &9020371884882479682
 GameObject:
   m_ObjectHideFlags: 0
@@ -26612,6 +27142,7 @@ GameObject:
   - component: {fileID: 5335699647449208713}
   - component: {fileID: 5657912724004960583}
   - component: {fileID: 8246472836656439965}
+  - component: {fileID: 9020371884882479683}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (14)
   m_TagString: Untagged
@@ -26619,6 +27150,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9020371884882479683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9020371884882479682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!108 &9024668872586450394
 Light:
   m_ObjectHideFlags: 0
@@ -26723,6 +27270,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9031158528803750406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24752815700510867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!108 &9048980730465286389
 Light:
   m_ObjectHideFlags: 0
@@ -26849,6 +27412,7 @@ GameObject:
   - component: {fileID: 4692584661397726822}
   - component: {fileID: 1720009802922561759}
   - component: {fileID: 2745353210425961503}
+  - component: {fileID: 9086585059101566504}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (30)
   m_TagString: Untagged
@@ -26856,6 +27420,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9086585059101566504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9086585059101566503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!23 &9092311198960675854
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26974,6 +27554,22 @@ Transform:
   - {fileID: 3085643636827417117}
   m_Father: {fileID: 6509342429783586494}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &9136618720503969370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6802082910062215770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!1 &9145687543318121447
 GameObject:
   m_ObjectHideFlags: 0
@@ -26986,6 +27582,7 @@ GameObject:
   - component: {fileID: 7568915076293728130}
   - component: {fileID: 649096555013718136}
   - component: {fileID: 1706566444011600140}
+  - component: {fileID: 9145687543318121448}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black) (31)
   m_TagString: Untagged
@@ -26993,6 +27590,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9145687543318121448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9145687543318121447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!1 &9182979564453746715
 GameObject:
   m_ObjectHideFlags: 0
@@ -27066,6 +27679,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9202979561905299918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4705734136056024608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  allSpotLights: []
+  refDayNight: {fileID: 1416285211}
 --- !u!1 &9210629399567428175
 GameObject:
   m_ObjectHideFlags: 0
