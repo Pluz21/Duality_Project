@@ -12,7 +12,7 @@ public class lampOnOff : MonoBehaviour
     
     void Start()
     {
-        
+        Init();
     }
 
     void Init()
