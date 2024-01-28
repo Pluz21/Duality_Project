@@ -1018,6 +1018,10 @@ PrefabInstance:
       propertyPath: sun
       value: 
       objectReference: {fileID: 4919837494555035161}
+    - target: {fileID: 1836656290749809196, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
+      propertyPath: lampRef
+      value: 
+      objectReference: {fileID: 3485587127324812373, guid: 683754683c8213e4ea879026d84be241, type: 3}
     - target: {fileID: 5066499380267237800, guid: b47101d46327af14ab5f2fcbb0fe3d81, type: 3}
       propertyPath: m_LocalPosition.x
       value: 739.9034

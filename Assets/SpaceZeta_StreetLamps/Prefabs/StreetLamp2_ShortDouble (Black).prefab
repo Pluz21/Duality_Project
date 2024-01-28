@@ -388,6 +388,7 @@ GameObject:
   - component: {fileID: 899370639600318514}
   - component: {fileID: 6865664787838207179}
   - component: {fileID: 3772475683010013469}
+  - component: {fileID: 3485587127324812373}
   m_Layer: 0
   m_Name: StreetLamp2_ShortDouble (Black)
   m_TagString: Untagged
@@ -487,3 +488,17 @@ CapsuleCollider:
   m_Height: 3.543503
   m_Direction: 1
   m_Center: {x: 0, y: 1.7717515, z: 0.0043095946}
+--- !u!114 &3485587127324812373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5150829015901351959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4f068aabb56fb4a9d01eeeafa9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light1: {fileID: 3772475682294731798}
+  light2: {fileID: 3772475681932394856}

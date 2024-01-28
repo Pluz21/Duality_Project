@@ -54,6 +54,7 @@ public class DayNight : MonoBehaviour
     [SerializeField,Range(0.1f,0.8f)] float customNightIntensity = 0.4f;
     [SerializeField] float customDayIntensity = 1f;
     public DayState DayStateRef => dayState;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -94,7 +95,7 @@ public class DayNight : MonoBehaviour
     private void SetDayAmbientColors()
     {
         dayColors.UpdateAmbientColors(dayColors.skyColor, dayColors.equatorColor);
-        nightColors.UpdateAmbientIntensity(customDayIntensity);
+        nightColors.UpdateAmbientIntensity(customDayIntensity);       
     }
 
     private void SetDayNightState()
