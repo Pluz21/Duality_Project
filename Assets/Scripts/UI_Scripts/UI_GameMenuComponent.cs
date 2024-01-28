@@ -82,7 +82,7 @@ public class UI_GameMenuComponent : MonoBehaviour
 
     private void QuitGame()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false; DEV ONLY
         Application.Quit();
     }
 

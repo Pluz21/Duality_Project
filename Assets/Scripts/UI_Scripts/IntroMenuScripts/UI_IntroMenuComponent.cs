@@ -27,12 +27,12 @@ public class UI_IntroMenuComponent : MonoBehaviour
        
         SceneManager.GetSceneByName(sceneToStartString);
         
-        SceneManager.LoadScene(sceneToStartString, LoadSceneMode.Single);
+        SceneManager.LoadScene(sceneToStartString, LoadSceneMode.Single);   
 
     }
     private void QuitGame()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false; DEV ONLY
         Application.Quit();
     }
 
