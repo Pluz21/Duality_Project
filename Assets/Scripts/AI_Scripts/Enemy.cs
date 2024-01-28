@@ -1,6 +1,8 @@
 
 using UnityEngine;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 [RequireComponent(typeof(DetectionComponent))]
 public class Enemy : MonoBehaviour
@@ -29,7 +31,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float minDistanceAllowedToInitialPos = 3;
     [SerializeField] float minDistanceAllowedToPlayer = 2;
     [SerializeField] float attackRangeOffsetToPlayer = 2;
-
+    
     // Attack - Damage 
     [SerializeField] int damage = 1;
     [SerializeField] float attackSpeed = 0.5f;
@@ -82,6 +84,8 @@ public class Enemy : MonoBehaviour
         initialPos = transform.position;
         initialRot = transform.rotation;
         patrolComponent = GetComponent<EnemyPatrolComponent>();
+
+        SetLayersToIgnorePlayerRB();
     }
 
 
@@ -89,6 +93,18 @@ public class Enemy : MonoBehaviour
     {
         EnemyLogic();
 
+    }
+
+    void SetLayersToIgnorePlayerRB()
+    {
+        gameObject.layer = 7;
+        List<Transform> _allChildsObjects = GetComponentsInChildren<Transform>().ToList();
+        int _size = _allChildsObjects.Count;
+        for (int i = 0; i < _size; i++)
+        {
+            _allChildsObjects[i].gameObject.layer = 7;
+
+        }
     }
 
     void EnemyLogic()
