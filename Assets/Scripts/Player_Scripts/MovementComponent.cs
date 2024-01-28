@@ -113,7 +113,7 @@ public class MovementComponent : MonoBehaviour
     public void Move()
     {
         if (!input) return;
-        Vector3 _moveDirection = input.Move.ReadValue<Vector3>();
+        Vector3 _moveDirection = input.Move.ReadValue<Vector3>().normalized;
 
         if (playerRef == null) return;
 

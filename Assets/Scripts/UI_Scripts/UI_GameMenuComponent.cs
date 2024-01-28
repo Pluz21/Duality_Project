@@ -99,6 +99,13 @@ public class UI_GameMenuComponent : MonoBehaviour
             PauseGame();
 
     }
+    public void OpenGameMenu()
+    {
+        Debug.Log("opening menu");
+        openMenu.performed -= OpenGameMenu;
+        openMenu.performed += CloseGameMenu;
+        PauseGame();
+    }
     void CloseGameMenu(InputAction.CallbackContext _context)
     {
         openMenu.performed += OpenGameMenu;
