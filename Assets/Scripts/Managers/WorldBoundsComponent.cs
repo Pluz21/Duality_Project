@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class WorldBoundsComponent : MonoBehaviour
 {
     [SerializeField] Player playerRef = null;
@@ -21,7 +21,12 @@ public class WorldBoundsComponent : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.GetComponent<Player>())
+        {
+            Rigidbody _rb = other.GetComponent<Rigidbody>();
+            if (!_rb) return;
+            _rb.useGravity = true;
             Debug.Log($"exiting collision with {other}");
+        }
 
     }
 
