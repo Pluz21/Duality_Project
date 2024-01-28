@@ -24,10 +24,9 @@ public class UI_IntroMenuComponent : MonoBehaviour
 
     private void StartLevel()
     {
-       if (!sceneToStart.isLoaded)
-        {
-            SceneManager.GetSceneByName(sceneToStartString);
-        }
+       
+        SceneManager.GetSceneByName(sceneToStartString);
+        
         SceneManager.LoadScene(sceneToStartString, LoadSceneMode.Single);
 
     }
