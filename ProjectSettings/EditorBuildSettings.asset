@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TimScenes/IntroMenuScene.unity
+    guid: dd78ef5e58f643543a7443fea9a4e521
   m_configObjects: {}
