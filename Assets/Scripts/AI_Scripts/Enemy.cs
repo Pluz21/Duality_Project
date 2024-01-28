@@ -7,6 +7,9 @@ using System.Linq;
 [RequireComponent(typeof(DetectionComponent))]
 public class Enemy : MonoBehaviour
 {
+    //sound
+    [SerializeField] AudioSource audioSound = null;
+    [SerializeField] AudioClip attacksound = null;
     //anim
     public event Action<bool> attack = null;
     //Events
@@ -245,7 +248,9 @@ public class Enemy : MonoBehaviour
         {
             DealDamage();
             attack?.Invoke(true);
-            
+            audioSound.clip = attacksound;
+            audioSound.Play();
+
         }
         else
             attack?.Invoke(false);

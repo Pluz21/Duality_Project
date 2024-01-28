@@ -6,6 +6,7 @@ public class EnemieAnimation : MonoBehaviour
 {
     [SerializeField] Animator enemiAnimator = null;
     [SerializeField] Enemy refEnemy = null;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class EnemieAnimation : MonoBehaviour
     {
       
       refEnemy.attack += updateAttackAnimator;
+      
     }
     public void updateAttackAnimator(bool _value)
     {
