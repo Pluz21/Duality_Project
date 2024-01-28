@@ -82,7 +82,7 @@ public class UI_GameMenuComponent : MonoBehaviour
 
     private void QuitGame()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false; DEV ONLY
         Application.Quit();
     }
 
@@ -98,6 +98,13 @@ public class UI_GameMenuComponent : MonoBehaviour
         openMenu.performed += CloseGameMenu;
             PauseGame();
 
+    }
+    public void OpenGameMenu()
+    {
+        Debug.Log("opening menu");
+        openMenu.performed -= OpenGameMenu;
+        openMenu.performed += CloseGameMenu;
+        PauseGame();
     }
     void CloseGameMenu(InputAction.CallbackContext _context)
     {
