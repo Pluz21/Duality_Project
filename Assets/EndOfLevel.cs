@@ -5,6 +5,7 @@ using UnityEngine;
 public class EndOfLevel : MonoBehaviour
 {
     [SerializeField] Player playerRef = null;
+    [SerializeField] GameObject winMenu = null;
     void Start()
     {
         Init();
@@ -19,6 +20,7 @@ public class EndOfLevel : MonoBehaviour
     {
         if (!other.GetComponent<Player>()) return;
         Debug.Log("You have found your way out. Onto the next level!");
+        winMenu.SetActive(true);
     }
     void Update()
     {
