@@ -21,6 +21,7 @@ public struct AmbientColors
     }
     public void UpdateAmbientColors(Color _skyColor, Color _equatorColor)
     {
+        RenderSettings.ambientGroundColor = _skyColor;
         RenderSettings.ambientSkyColor = _skyColor;
         RenderSettings.ambientEquatorColor = _equatorColor;
     }

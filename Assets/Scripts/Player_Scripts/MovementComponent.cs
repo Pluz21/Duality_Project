@@ -97,6 +97,7 @@ public class MovementComponent : MonoBehaviour
 
     void InitEvents()
     {
+        InvokeRepeating("Move", 0.2f, 0.3f);
         dayNight.OnNightStarted += EnableInvisibility;
         dayNight.OnDayStarted += DisableInvisibility;
         //test sound paul
@@ -106,7 +107,7 @@ public class MovementComponent : MonoBehaviour
     }
     void Update()
     {
-        Move();
+       // Move();
         Rotate();  
         Dash();
         Crouch();
@@ -117,7 +118,10 @@ public class MovementComponent : MonoBehaviour
 
        
     }
-
+    private void LateUpdate()
+    {
+       // Move();
+    }
 
     public void Move()
     {

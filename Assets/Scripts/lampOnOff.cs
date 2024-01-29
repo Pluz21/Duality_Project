@@ -43,8 +43,8 @@ public class lampOnOff : MonoBehaviour
 
     public void LampOn()
     {
-       light1.intensity = 300;
-       light2.intensity = 300;    
+       light1.intensity = 150;
+       light2.intensity = 150;    
     }
     public void LampOff()
     {
