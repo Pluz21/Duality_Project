@@ -20,6 +20,7 @@ public class UI_IntroMenuComponent : MonoBehaviour
     {
         startGameButton.onClick.AddListener(StartLevel);
         quitGameButton.onClick.AddListener(QuitGame);
+        //startGameButton.OnPointerEnter
     }
 
     private void StartLevel()
