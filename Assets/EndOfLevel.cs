@@ -21,6 +21,7 @@ public class EndOfLevel : MonoBehaviour
         if (!other.GetComponent<Player>()) return;
         Debug.Log("You have found your way out. Onto the next level!");
         winMenu.SetActive(true);
+        Time.timeScale = 0f;
     }
     void Update()
     {
