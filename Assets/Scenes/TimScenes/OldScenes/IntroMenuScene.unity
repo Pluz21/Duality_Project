@@ -128,7 +128,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6503449213621629202, guid: f5666345c432e3e42af2fd0bf0a56e65, type: 3}
   m_PrefabInstance: {fileID: 847024155453091015}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 498110398}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -558,6 +558,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441287561}
   m_CullTransparentMesh: 1
+--- !u!1 &498110398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4526007236382369577, guid: f5666345c432e3e42af2fd0bf0a56e65, type: 3}
+  m_PrefabInstance: {fileID: 847024155453091015}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &498110403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498110398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 753682339}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: PlayOneShot
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: d74fe6a112a7d4c4d83a574759ac88ba, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &563596023
 GameObject:
   m_ObjectHideFlags: 3
@@ -3064,6 +3098,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8741610401055644581, guid: f5666345c432e3e42af2fd0bf0a56e65, type: 3}
       insertIndex: -1
       addedObject: {fileID: 575293193}
+    - targetCorrespondingSourceObject: {fileID: 4526007236382369577, guid: f5666345c432e3e42af2fd0bf0a56e65, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 498110403}
   m_SourcePrefab: {fileID: 100100000, guid: f5666345c432e3e42af2fd0bf0a56e65, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
