@@ -46,8 +46,8 @@ Light:
   m_Color: {r: 1, g: 0.97338027, b: 0.811, a: 1}
   m_Intensity: 3
   m_Range: 7
-  m_SpotAngle: 101
-  m_InnerSpotAngle: 7.6
+  m_SpotAngle: 90
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -139,7 +139,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.972549, b: 0.8117647, a: 1}
   m_Intensity: 3
-  m_Range: 2
+  m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -234,8 +234,8 @@ Light:
   m_Color: {r: 1, g: 0.97338027, b: 0.811, a: 1}
   m_Intensity: 3
   m_Range: 7
-  m_SpotAngle: 101
-  m_InnerSpotAngle: 7.6
+  m_SpotAngle: 90
+  m_InnerSpotAngle: 5
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -327,7 +327,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.972549, b: 0.8117647, a: 1}
   m_Intensity: 3
-  m_Range: 2
+  m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -502,3 +502,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   light1: {fileID: 3772475682294731798}
   light2: {fileID: 3772475681932394856}
+  allSpotLights: []
+  refDayNight: {fileID: 0}
